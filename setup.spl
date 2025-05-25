@@ -1,0 +1,133 @@
+-- DISC測定アプリケーション データベースセットアップスクリプト
+
+-- データベース作成
+CREATE DATABASE IF NOT EXISTS disc_app CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE disc_app;
+
+-- ユーザー作成と権限付与
+-- 注意：実際の環境では、安全なパスワードを使用してください
+CREATE USER IF NOT EXISTS 'disc_user'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON disc_app.* TO 'disc_user'@'localhost';
+FLUSH PRIVILEGES;
+
+-- テーブル作成
+-- Userテーブル
+CREATE TABLE IF NOT EXISTS user (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(80) UNIQUE NOT NULL,
+    email VARCHAR(120) UNIQUE NOT NULL,
+    password_hash VARCHAR(255) NOT NULL,
+    date_registered DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    is_admin BOOLEAN NOT NULL DEFAULT FALSE,
+    team_id INT
+);
+
+-- Teamテーブル
+CREATE TABLE IF NOT EXISTS team (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    description TEXT
+);
+
+-- Questionテーブル
+CREATE TABLE IF NOT EXISTS question (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    question_text TEXT NOT NULL
+);
+
+-- Choiceテーブル
+CREATE TABLE IF NOT EXISTS choice (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    choice_text TEXT NOT NULL,
+    disc_type CHAR(1) NOT NULL,
+    question_id INT NOT NULL,
+    FOREIGN KEY (question_id) REFERENCES question(id) ON DELETE CASCADE
+);
+
+-- TestResultテーブル
+CREATE TABLE IF NOT EXISTS test_result (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    date_taken DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    graph_1_d INT NOT NULL,
+    graph_1_i INT NOT NULL,
+    graph_1_s INT NOT NULL,
+    graph_1_c INT NOT NULL,
+    graph_2_d INT NOT NULL,
+    graph_2_i INT NOT NULL,
+    graph_2_s INT NOT NULL,
+    graph_2_c INT NOT NULL,
+    graph_3_d INT NOT NULL,
+    graph_3_i INT NOT NULL,
+    graph_3_s INT NOT NULL,
+    graph_3_c INT NOT NULL,
+    segment_1 VARCHAR(10) NOT NULL,
+    segment_2 VARCHAR(10) NOT NULL,
+    segment_3 VARCHAR(10) NOT NULL,
+    profile_pattern_1 VARCHAR(50) NOT NULL,
+    profile_pattern_2 VARCHAR(50) NOT NULL,
+    profile_pattern_3 VARCHAR(50) NOT NULL,
+    stage_2_result TEXT NOT NULL,
+    stage_3_result TEXT NOT NULL,
+    answers TEXT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE
+);
+
+-- ProfilePatternテーブル
+CREATE TABLE IF NOT EXISTS profile_pattern (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    segment_code VARCHAR(10) UNIQUE NOT NULL,
+    pattern_name VARCHAR(50) NOT NULL,
+    emotion TEXT,
+    goal TEXT,
+    judgment_criteria TEXT,
+    influence_factors TEXT,
+    strengths TEXT,
+    excessive_aspects TEXT,
+    under_pressure TEXT,
+    fears TEXT,
+    improvement TEXT,
+    summary TEXT
+);
+
+-- Stage2Traitテーブル
+CREATE TABLE IF NOT EXISTS stage2_trait (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    disc_type CHAR(1) NOT NULL,
+    intensity INT NOT NULL,
+    trait VARCHAR(50) NOT NULL
+);
+
+-- 外部キー制約の追加
+ALTER TABLE user
+ADD CONSTRAINT fk_user_team
+FOREIGN KEY (team_id) REFERENCES team(id) ON DELETE SET NULL;
+
+-- 初期管理者ユーザーの作成
+-- パスワードはSHA256ハッシュ化されています（実際のアプリケーションでは適切なハッシュ化を使用してください）
+INSERT INTO user (username, email, password_hash, is_admin)
+VALUES ('admin', 'admin@example.com', '$2b$12$1xxxxxxxxxxxxxxxxxxxxuZLbwlOLM/Zd7GWZpIQIm.8v73kkzMe', TRUE);
+
+-- 初期のチームデータ
+INSERT INTO team (name, description) VALUES
+('開発チーム', 'ソフトウェア開発担当のチーム'),
+('マーケティングチーム', '市場調査や販売促進を担当するチーム'),
+('運営チーム', '日常業務や顧客サポートを担当するチーム');
+
+-- 初期のProfile Patternデータ
+-- 実際のアプリケーションではdb.xlsxの内容に基づいて更新する必要があります
+INSERT INTO profile_pattern (segment_code, pattern_name, emotion, goal, judgment_criteria, influence_factors, strengths, excessive_aspects, under_pressure, fears, improvement, summary)
+VALUES 
+('7631', '創造者', '情緒面：強さと重視、抑えた表現をしがち', '目標：優位、ユニークな成果', '他人を判断する基準：個人目標、目的を達成するための進歩的な考え方', '他人に影響を及ぼす要素：新しいシステムやイノベーションを形成する際の効率の良さを感じる能力', '組織内でのあなたの長所：率先して計画を立て変化を創り出す', '過剰になりやすい面：無遠慮さ、批判的または批難した態度', 'プレッシャーがかかった時：単独な仕事にあきやすい、不本意に拘束されると不機嫌になる、ひとりで行動する', '不安や恐れ：影響力に欠ける、自分の基準を達成できない', '効果性を高めるには：暖かさ、上手なコミュニケーション、チームとの協力、物事には限度があるという認識', '創造者パターンの行動特性には、相反する二つの側面が見られます。実現可能な結果を望む一方、完璧を求めることで、効率性と創造性を両立させています。この人は常に積極的で、目標達成に向けた方法を見つけようと努力しています。計画を入念に立て、頼りになる結果を生み出す能力があり、明確なビジョンを持っているため、短期間で成果を上げることができます。また、すぐれた計画能力を備えているために、変化する環境にも適応可能です。'),
+('6721', '奨励者', '情緒面：人を受け入れる、友好的', '目標：友情、幸福', '他人を判断する基準：進んで人を受け入れる態度、人の長所を見るところ', '他人に影響を及ぼす要素：個人的な関係、'いつでも誰にでも'の対応', '組織内でのあなたの長所：安定的と予測可能な環境で仕事をする、広いDISC関係、人の気持ちを理解する', '過剰になりやすい面：間接的な態度、寛大すぎる姿勢', 'プレッシャーがかかった時：必要以上に許容的に親切に示す、誰とでも調和する', '不安や恐れ：人にプレッシャーをかける、人を嫌うことを非難される', '効果性を高めるには：現実的な期日を守る、率先して勤務を遂行する', '奨励者パターンは、人間関係の潤滑油の役割を果たします。特に対立する場面では、その穏やかな対応と共感力で人々を結びつけることができます。この人は自分の感情表現を抑制しながらも、相手の感情に敏感で、どんな相手に対しても温かく接することができます。また、その柔軟な姿勢は環境適応力の高さにつながり、チーム内の調和を保つことに貢献します。');
+
+-- ステージ2特性の一部データを登録（実際にはもっと多くのデータが必要）
+INSERT INTO stage2_trait (disc_type, intensity, trait) VALUES
+('D', 28, '自己中心的'), ('D', 27, '直接的'), ('D', 26, '大胆'), ('D', 25, '支配的'),
+('D', 24, '要求が強い'), ('D', 23, '強引'), ('D', 22, 'リスクを負う'), ('D', 21, '冒険的'),
+('I', 28, '情熱的'), ('I', 27, '交際好き'), ('I', 26, '説得力がある'), ('I', 25, '熱烈な'),
+('I', 24, '感情的'), ('I', 23, '自発的'), ('I', 22, '人を信じる'), ('I', 21, '影響力がある'),
+('S', 28, '受身的'), ('S', 27, '忍耐強い'), ('S', 26, '従順'), ('S', 25, '規則矯持'),
+('S', 24, 'チームプレーヤー'), ('S', 23, 'おだやか'), ('S', 22, '安定的'), ('S', 21, '堅実'),
+('C', 28, '完ぺき主義'), ('C', 27, '正確'), ('C', 26, '高基準'), ('C', 25, '分析的'),
+('C', 24, '敏感'), ('C', 23, '熟考的'), ('C', 22, '注意深い'), ('C', 21, '体系的');

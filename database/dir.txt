@@ -1,0 +1,1777 @@
+ ドライブ C のボリューム ラベルは Local Disk です
+ ボリューム シリアル番号は F803-FFF3 です
+
+ c:\disc-app のディレクトリ
+
+2025/05/08  16:41    <DIR>          .
+2025/05/07  10:37             2,665 app .py.bak1
+2025/05/07  10:46             2,689 app.py
+2025/05/02  11:09             1,037 config.py
+2025/05/22  10:52    <DIR>          database
+2025/05/08  12:26            77,071 db.xlsx
+2025/05/08  12:38             3,393 db確認.py
+2025/05/02  10:58               857 docker-compose.yml
+2025/05/02  10:59               415 dockerfile
+2025/05/08  12:04            18,194 import_excel_to_db.py
+2025/05/07  17:18            10,053 import_excel_to_db.py.bak1
+2025/05/07  21:14            15,280 import_excel_to_db.py.bak2
+2025/05/07  21:25            16,909 import_excel_to_db.py.bak3
+2025/05/08  16:37    <DIR>          modules
+2025/05/02  10:58               206 requirements.txt
+2025/05/02  10:58             8,133 setup.spl
+2025/05/02  10:52             4,486 setup_guide.md
+2025/05/07  12:47    <DIR>          static
+2025/05/08  16:36    <DIR>          templates
+2025/05/02  11:07    <DIR>          venv
+2025/05/07  10:47    <DIR>          __pycache__
+2025/05/02  11:00             5,165 使い方ガイド.md
+2025/05/07  18:14    <DIR>          要件書
+              15 個のファイル             166,553 バイト
+
+ c:\disc-app\database のディレクトリ
+
+2025/05/22  10:53    <DIR>          .
+2025/05/08  16:41    <DIR>          ..
+2025/05/22  10:49            54,516 db_setup.py
+2025/05/02  10:25            31,296 db_setup.py.bak1
+2025/05/22  10:53                 0 dir.txt
+2025/05/07  21:44             6,994 models.py
+2025/05/02  10:25             6,082 models.py.bak1
+2025/05/07  17:23             6,082 models.py.bak2
+2025/05/07  18:03             6,840 models.py.bak3
+2025/05/02  10:27                56 __init__.py
+2025/05/07  21:44    <DIR>          __pycache__
+               8 個のファイル             111,866 バイト
+
+ c:\disc-app\database\__pycache__ のディレクトリ
+
+2025/05/07  21:44    <DIR>          .
+2025/05/22  10:53    <DIR>          ..
+2025/05/02  11:09            28,257 db_setup.cpython-313.pyc
+2025/05/07  21:44            11,464 models.cpython-313.pyc
+2025/05/02  11:09               129 __init__.cpython-313.pyc
+               3 個のファイル              39,850 バイト
+
+ c:\disc-app\modules のディレクトリ
+
+2025/05/08  16:37    <DIR>          .
+2025/05/08  16:41    <DIR>          ..
+2025/05/02  10:28             6,951 auth.py
+2025/05/08  16:58            15,902 disc_logic.py
+2025/05/07  10:29            53,778 disc_logic.py.bak1
+2025/05/07  11:31            15,893 disc_logic.py.bak2
+2025/05/02  10:54            16,306 disc_logic_chartjs.py
+2025/05/02  10:29             1,797 utils.py
+2025/05/02  10:27                56 __init__.py
+2025/05/08  16:58    <DIR>          __pycache__
+               7 個のファイル             110,683 バイト
+
+ c:\disc-app\modules\__pycache__ のディレクトリ
+
+2025/05/08  16:58    <DIR>          .
+2025/05/08  16:37    <DIR>          ..
+2025/05/02  11:09            10,839 auth.cpython-313.pyc
+2025/05/08  16:58            17,582 disc_logic.cpython-313.pyc
+2025/05/02  11:09               128 __init__.cpython-313.pyc
+               3 個のファイル              28,549 バイト
+
+ c:\disc-app\static のディレクトリ
+
+2025/05/07  12:47    <DIR>          .
+2025/05/08  16:41    <DIR>          ..
+2025/05/02  11:07    <DIR>          css
+2025/05/07  12:52    <DIR>          images
+2025/05/02  11:07    <DIR>          js
+               0 個のファイル                   0 バイト
+
+ c:\disc-app\static\css のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/07  12:47    <DIR>          ..
+2025/05/02  10:51             3,949 style.css
+               1 個のファイル               3,949 バイト
+
+ c:\disc-app\static\images のディレクトリ
+
+2025/05/07  12:52    <DIR>          .
+2025/05/07  12:47    <DIR>          ..
+2025/05/07  12:48             1,603 404.svg
+2025/05/07  12:52             2,728 500.svg
+               2 個のファイル               4,331 バイト
+
+ c:\disc-app\static\js のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/07  12:47    <DIR>          ..
+2025/05/02  10:51             7,609 script.js
+               1 個のファイル               7,609 バイト
+
+ c:\disc-app\templates のディレクトリ
+
+2025/05/08  16:36    <DIR>          .
+2025/05/08  16:41    <DIR>          ..
+2025/05/02  10:49             1,532 404.html
+2025/05/02  10:50             1,586 500.html
+2025/05/02  10:49            17,103 analysis.html
+2025/05/07  11:20             5,641 base.html
+2025/05/02  10:30             5,641 base.html.bak1
+2025/05/02  10:56             4,144 change_password.html
+2025/05/02  10:57            15,094 dashboard.html
+2025/05/02  10:56             2,473 edit_profile.html
+2025/05/08  15:07            10,413 history.html
+2025/05/08  14:45             7,946 history.html.bak1
+2025/05/02  10:31             6,717 index.html
+2025/05/02  10:31             2,768 login.html
+2025/05/08  16:25            25,040 pdf_results.html
+2025/05/08  15:07            11,457 profile.html
+2025/05/08  14:44             8,990 profile.html.bak1
+2025/05/02  10:32             3,605 register.html
+2025/05/07  12:27            31,495 results .html.bak2
+2025/05/08  16:57            37,403 results.html
+2025/05/02  10:48            23,779 results.html.bak1
+2025/05/07  13:40            37,376 results.html.bak3
+2025/05/08  13:57            29,758 results_chartjs.html
+2025/05/02  10:33            13,345 test.html
+              22 個のファイル             303,306 バイト
+
+ c:\disc-app\venv のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/08  16:41    <DIR>          ..
+2025/05/02  11:02                71 .gitignore
+2025/05/02  11:02    <DIR>          Include
+2025/05/02  11:07    <DIR>          Lib
+2025/05/02  11:02               323 pyvenv.cfg
+2025/05/02  11:07    <DIR>          Scripts
+               2 個のファイル                 394 バイト
+
+ c:\disc-app\venv\Include のディレクトリ
+
+2025/05/02  11:02    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+               0 個のファイル                   0 バイト
+
+ c:\disc-app\venv\Lib のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:07    <DIR>          site-packages
+               0 個のファイル                   0 バイト
+
+ c:\disc-app\venv\Lib\site-packages のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:07    <DIR>          pip
+2025/05/02  11:07    <DIR>          pip-25.0.1.dist-info
+               0 個のファイル                   0 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02               286 py.typed
+2025/05/02  11:07    <DIR>          _internal
+2025/05/02  11:07    <DIR>          _vendor
+2025/05/02  11:02               357 __init__.py
+2025/05/02  11:02               854 __main__.py
+2025/05/02  11:02             1,450 __pip-runner__.py
+2025/05/02  11:07    <DIR>          __pycache__
+               4 個のファイル               2,947 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_internal のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02            10,700 build_env.py
+2025/05/02  11:02            10,369 cache.py
+2025/05/02  11:07    <DIR>          cli
+2025/05/02  11:07    <DIR>          commands
+2025/05/02  11:02            14,005 configuration.py
+2025/05/02  11:07    <DIR>          distributions
+2025/05/02  11:02            26,481 exceptions.py
+2025/05/02  11:07    <DIR>          index
+2025/05/02  11:07    <DIR>          locations
+2025/05/02  11:02               340 main.py
+2025/05/02  11:07    <DIR>          metadata
+2025/05/02  11:07    <DIR>          models
+2025/05/02  11:07    <DIR>          network
+2025/05/02  11:07    <DIR>          operations
+2025/05/02  11:02             7,286 pyproject.py
+2025/05/02  11:07    <DIR>          req
+2025/05/02  11:07    <DIR>          resolution
+2025/05/02  11:02             8,318 self_outdated_check.py
+2025/05/02  11:07    <DIR>          utils
+2025/05/02  11:07    <DIR>          vcs
+2025/05/02  11:02            11,799 wheel_builder.py
+2025/05/02  11:02               513 __init__.py
+2025/05/02  11:07    <DIR>          __pycache__
+               9 個のファイル              89,811 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_internal\cli のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02             6,865 autocompletion.py
+2025/05/02  11:02             8,625 base_command.py
+2025/05/02  11:02            30,116 cmdoptions.py
+2025/05/02  11:02               774 command_context.py
+2025/05/02  11:02             5,677 index_command.py
+2025/05/02  11:02             2,817 main.py
+2025/05/02  11:02             4,338 main_parser.py
+2025/05/02  11:02            10,825 parser.py
+2025/05/02  11:02             2,717 progress_bars.py
+2025/05/02  11:02            12,250 req_command.py
+2025/05/02  11:02             5,118 spinners.py
+2025/05/02  11:02               116 status_codes.py
+2025/05/02  11:02               132 __init__.py
+2025/05/02  11:07    <DIR>          __pycache__
+              13 個のファイル              90,370 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_internal\cli\__pycache__ のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02             8,965 autocompletion.cpython-313.pyc
+2025/05/02  11:02            10,679 base_command.cpython-313.pyc
+2025/05/02  11:02            30,158 cmdoptions.cpython-313.pyc
+2025/05/02  11:02             1,851 command_context.cpython-313.pyc
+2025/05/02  11:02             7,410 index_command.cpython-313.pyc
+2025/05/02  11:02             2,283 main.cpython-313.pyc
+2025/05/02  11:02             4,988 main_parser.cpython-313.pyc
+2025/05/02  11:02            15,365 parser.cpython-313.pyc
+2025/05/02  11:02             3,848 progress_bars.cpython-313.pyc
+2025/05/02  11:02            12,265 req_command.cpython-313.pyc
+2025/05/02  11:02             8,157 spinners.cpython-313.pyc
+2025/05/02  11:02               356 status_codes.cpython-313.pyc
+2025/05/02  11:02               259 __init__.cpython-313.pyc
+              13 個のファイル             106,584 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_internal\commands のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02             8,107 cache.py
+2025/05/02  11:02             2,268 check.py
+2025/05/02  11:02             4,287 completion.py
+2025/05/02  11:02             9,766 configuration.py
+2025/05/02  11:02             6,797 debug.py
+2025/05/02  11:02             5,273 download.py
+2025/05/02  11:02             3,203 freeze.py
+2025/05/02  11:02             1,703 hash.py
+2025/05/02  11:02             1,132 help.py
+2025/05/02  11:02             4,731 index.py
+2025/05/02  11:02             3,189 inspect.py
+2025/05/02  11:02            29,390 install.py
+2025/05/02  11:02            12,769 list.py
+2025/05/02  11:02             5,626 search.py
+2025/05/02  11:02             7,857 show.py
+2025/05/02  11:02             3,892 uninstall.py
+2025/05/02  11:02             6,414 wheel.py
+2025/05/02  11:02             3,882 __init__.py
+2025/05/02  11:07    <DIR>          __pycache__
+              18 個のファイル             120,286 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_internal\commands\__pycache__ のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02            10,065 cache.cpython-313.pyc
+2025/05/02  11:02             2,663 check.cpython-313.pyc
+2025/05/02  11:02             5,208 completion.cpython-313.pyc
+2025/05/02  11:02            13,215 configuration.cpython-313.pyc
+2025/05/02  11:02            10,277 debug.cpython-313.pyc
+2025/05/02  11:02             7,530 download.cpython-313.pyc
+2025/05/02  11:02             4,427 freeze.cpython-313.pyc
+2025/05/02  11:02             3,012 hash.cpython-313.pyc
+2025/05/02  11:02             1,726 help.cpython-313.pyc
+2025/05/02  11:02             6,675 index.cpython-313.pyc
+2025/05/02  11:02             4,017 inspect.cpython-313.pyc
+2025/05/02  11:02            29,450 install.cpython-313.pyc
+2025/05/02  11:02            16,022 list.cpython-313.pyc
+2025/05/02  11:02             7,647 search.cpython-313.pyc
+2025/05/02  11:02            11,122 show.cpython-313.pyc
+2025/05/02  11:02             4,751 uninstall.cpython-313.pyc
+2025/05/02  11:02             8,957 wheel.cpython-313.pyc
+2025/05/02  11:02             3,979 __init__.cpython-313.pyc
+              18 個のファイル             150,743 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_internal\distributions のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02             1,783 base.py
+2025/05/02  11:02               842 installed.py
+2025/05/02  11:02             6,751 sdist.py
+2025/05/02  11:02             1,317 wheel.py
+2025/05/02  11:02               858 __init__.py
+2025/05/02  11:07    <DIR>          __pycache__
+               5 個のファイル              11,551 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_internal\distributions\__pycache__ のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02             2,884 base.cpython-313.pyc
+2025/05/02  11:02             1,735 installed.cpython-313.pyc
+2025/05/02  11:02             8,614 sdist.cpython-313.pyc
+2025/05/02  11:02             2,324 wheel.cpython-313.pyc
+2025/05/02  11:02               944 __init__.cpython-313.pyc
+               5 個のファイル              16,501 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_internal\index のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02            16,265 collector.py
+2025/05/02  11:02            38,076 package_finder.py
+2025/05/02  11:02             8,632 sources.py
+2025/05/02  11:02                30 __init__.py
+2025/05/02  11:07    <DIR>          __pycache__
+               4 個のファイル              63,003 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_internal\index\__pycache__ のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02            21,822 collector.cpython-313.pyc
+2025/05/02  11:02            40,933 package_finder.cpython-313.pyc
+2025/05/02  11:02            12,734 sources.cpython-313.pyc
+2025/05/02  11:02               213 __init__.cpython-313.pyc
+               4 個のファイル              75,702 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_internal\locations のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02             2,556 base.py
+2025/05/02  11:02             6,013 _distutils.py
+2025/05/02  11:02             7,724 _sysconfig.py
+2025/05/02  11:02            14,925 __init__.py
+2025/05/02  11:07    <DIR>          __pycache__
+               4 個のファイル              31,218 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_internal\locations\__pycache__ のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02             3,749 base.cpython-313.pyc
+2025/05/02  11:02             6,880 _distutils.cpython-313.pyc
+2025/05/02  11:02             8,117 _sysconfig.cpython-313.pyc
+2025/05/02  11:02            16,944 __init__.cpython-313.pyc
+               4 個のファイル              35,690 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_internal\metadata のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02            25,298 base.py
+2025/05/02  11:07    <DIR>          importlib
+2025/05/02  11:02            10,542 pkg_resources.py
+2025/05/02  11:02             2,707 _json.py
+2025/05/02  11:02             4,337 __init__.py
+2025/05/02  11:07    <DIR>          __pycache__
+               4 個のファイル              42,884 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_internal\metadata\importlib のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02             2,796 _compat.py
+2025/05/02  11:02             8,279 _dists.py
+2025/05/02  11:02             7,431 _envs.py
+2025/05/02  11:02               135 __init__.py
+2025/05/02  11:07    <DIR>          __pycache__
+               4 個のファイル              18,641 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_internal\metadata\importlib\__pycache__ のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02             4,517 _compat.cpython-313.pyc
+2025/05/02  11:02            13,104 _dists.cpython-313.pyc
+2025/05/02  11:02            11,159 _envs.cpython-313.pyc
+2025/05/02  11:02               339 __init__.cpython-313.pyc
+               4 個のファイル              29,119 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_internal\metadata\__pycache__ のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02            34,577 base.cpython-313.pyc
+2025/05/02  11:02            16,307 pkg_resources.cpython-313.pyc
+2025/05/02  11:02             2,997 _json.cpython-313.pyc
+2025/05/02  11:02             5,811 __init__.cpython-313.pyc
+               4 個のファイル              59,692 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_internal\models のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02               753 candidate.py
+2025/05/02  11:02             6,578 direct_url.py
+2025/05/02  11:02             2,486 format_control.py
+2025/05/02  11:02             1,030 index.py
+2025/05/02  11:02             2,818 installation_report.py
+2025/05/02  11:02            21,448 link.py
+2025/05/02  11:02               575 scheme.py
+2025/05/02  11:02             4,531 search_scope.py
+2025/05/02  11:02             2,015 selection_prefs.py
+2025/05/02  11:02             4,271 target_python.py
+2025/05/02  11:02             4,539 wheel.py
+2025/05/02  11:02                63 __init__.py
+2025/05/02  11:07    <DIR>          __pycache__
+              12 個のファイル              51,107 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_internal\models\__pycache__ のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02             1,643 candidate.cpython-313.pyc
+2025/05/02  11:02            10,985 direct_url.cpython-313.pyc
+2025/05/02  11:02             4,239 format_control.cpython-313.pyc
+2025/05/02  11:02             1,746 index.cpython-313.pyc
+2025/05/02  11:02             2,360 installation_report.cpython-313.pyc
+2025/05/02  11:02            26,995 link.cpython-313.pyc
+2025/05/02  11:02             1,048 scheme.cpython-313.pyc
+2025/05/02  11:02             5,092 search_scope.cpython-313.pyc
+2025/05/02  11:02             1,811 selection_prefs.cpython-313.pyc
+2025/05/02  11:02             4,816 target_python.cpython-313.pyc
+2025/05/02  11:02             6,510 wheel.cpython-313.pyc
+2025/05/02  11:02               247 __init__.cpython-313.pyc
+              12 個のファイル              67,492 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_internal\network のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02            20,809 auth.py
+2025/05/02  11:02             4,614 cache.py
+2025/05/02  11:02             6,048 download.py
+2025/05/02  11:02             7,622 lazy_wheel.py
+2025/05/02  11:02            18,771 session.py
+2025/05/02  11:02             4,088 utils.py
+2025/05/02  11:02             1,838 xmlrpc.py
+2025/05/02  11:02                50 __init__.py
+2025/05/02  11:07    <DIR>          __pycache__
+               8 個のファイル              63,840 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_internal\network\__pycache__ のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02            22,543 auth.cpython-313.pyc
+2025/05/02  11:02             7,185 cache.cpython-313.pyc
+2025/05/02  11:02             8,640 download.cpython-313.pyc
+2025/05/02  11:02            11,483 lazy_wheel.cpython-313.pyc
+2025/05/02  11:02            19,183 session.cpython-313.pyc
+2025/05/02  11:02             2,276 utils.cpython-313.pyc
+2025/05/02  11:02             3,027 xmlrpc.cpython-313.pyc
+2025/05/02  11:02               235 __init__.cpython-313.pyc
+               8 個のファイル              74,572 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_internal\operations のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:07    <DIR>          build
+2025/05/02  11:02             5,912 check.py
+2025/05/02  11:02             9,843 freeze.py
+2025/05/02  11:07    <DIR>          install
+2025/05/02  11:02            28,118 prepare.py
+2025/05/02  11:02                 0 __init__.py
+2025/05/02  11:07    <DIR>          __pycache__
+               4 個のファイル              43,873 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_internal\operations\build のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02             4,774 build_tracker.py
+2025/05/02  11:02             1,422 metadata.py
+2025/05/02  11:02             1,510 metadata_editable.py
+2025/05/02  11:02             2,190 metadata_legacy.py
+2025/05/02  11:02             1,075 wheel.py
+2025/05/02  11:02             1,417 wheel_editable.py
+2025/05/02  11:02             3,045 wheel_legacy.py
+2025/05/02  11:02                 0 __init__.py
+2025/05/02  11:07    <DIR>          __pycache__
+               8 個のファイル              15,433 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_internal\operations\build\__pycache__ のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02             7,722 build_tracker.cpython-313.pyc
+2025/05/02  11:02             1,842 metadata.cpython-313.pyc
+2025/05/02  11:02             1,894 metadata_editable.cpython-313.pyc
+2025/05/02  11:02             2,977 metadata_legacy.cpython-313.pyc
+2025/05/02  11:02             1,664 wheel.cpython-313.pyc
+2025/05/02  11:02             2,005 wheel_editable.cpython-313.pyc
+2025/05/02  11:02             3,848 wheel_legacy.cpython-313.pyc
+2025/05/02  11:02               184 __init__.cpython-313.pyc
+               8 個のファイル              22,136 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_internal\operations\install のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02             1,283 editable_legacy.py
+2025/05/02  11:02            27,615 wheel.py
+2025/05/02  11:02                51 __init__.py
+2025/05/02  11:07    <DIR>          __pycache__
+               3 個のファイル              28,949 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_internal\operations\install\__pycache__ のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02             1,778 editable_legacy.cpython-313.pyc
+2025/05/02  11:02            34,755 wheel.cpython-313.pyc
+2025/05/02  11:02               247 __init__.cpython-313.pyc
+               3 個のファイル              36,780 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_internal\operations\__pycache__ のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02             7,205 check.cpython-313.pyc
+2025/05/02  11:02            10,459 freeze.cpython-313.pyc
+2025/05/02  11:02            26,576 prepare.cpython-313.pyc
+2025/05/02  11:02               178 __init__.cpython-313.pyc
+               4 個のファイル              44,418 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_internal\req のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02            18,430 constructors.py
+2025/05/02  11:02            20,234 req_file.py
+2025/05/02  11:02            35,786 req_install.py
+2025/05/02  11:02             2,858 req_set.py
+2025/05/02  11:02            23,853 req_uninstall.py
+2025/05/02  11:02             2,653 __init__.py
+2025/05/02  11:07    <DIR>          __pycache__
+               6 個のファイル             103,814 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_internal\req\__pycache__ のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02            21,528 constructors.cpython-313.pyc
+2025/05/02  11:02            24,596 req_file.cpython-313.pyc
+2025/05/02  11:02            39,326 req_install.cpython-313.pyc
+2025/05/02  11:02             5,602 req_set.cpython-313.pyc
+2025/05/02  11:02            32,834 req_uninstall.cpython-313.pyc
+2025/05/02  11:02             3,552 __init__.cpython-313.pyc
+               6 個のファイル             127,438 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_internal\resolution のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02               583 base.py
+2025/05/02  11:07    <DIR>          legacy
+2025/05/02  11:07    <DIR>          resolvelib
+2025/05/02  11:02                 0 __init__.py
+2025/05/02  11:07    <DIR>          __pycache__
+               2 個のファイル                 583 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_internal\resolution\legacy のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02            24,068 resolver.py
+2025/05/02  11:02                 0 __init__.py
+2025/05/02  11:07    <DIR>          __pycache__
+               2 個のファイル              24,068 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_internal\resolution\legacy\__pycache__ のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02            22,862 resolver.cpython-313.pyc
+2025/05/02  11:02               185 __init__.cpython-313.pyc
+               2 個のファイル              23,047 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_internal\resolution\resolvelib のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02             5,023 base.py
+2025/05/02  11:02            20,001 candidates.py
+2025/05/02  11:02            32,659 factory.py
+2025/05/02  11:02             6,383 found_candidates.py
+2025/05/02  11:02             9,935 provider.py
+2025/05/02  11:02             3,168 reporter.py
+2025/05/02  11:02             8,065 requirements.py
+2025/05/02  11:02            12,592 resolver.py
+2025/05/02  11:02                 0 __init__.py
+2025/05/02  11:07    <DIR>          __pycache__
+               9 個のファイル              97,826 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_internal\resolution\resolvelib\__pycache__ のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02             8,248 base.cpython-313.pyc
+2025/05/02  11:02            29,758 candidates.cpython-313.pyc
+2025/05/02  11:02            33,102 factory.cpython-313.pyc
+2025/05/02  11:02             6,851 found_candidates.cpython-313.pyc
+2025/05/02  11:02            10,280 provider.cpython-313.pyc
+2025/05/02  11:02             5,116 reporter.cpython-313.pyc
+2025/05/02  11:02            15,728 requirements.cpython-313.pyc
+2025/05/02  11:02            12,379 resolver.cpython-313.pyc
+2025/05/02  11:02               189 __init__.cpython-313.pyc
+               9 個のファイル             121,651 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_internal\resolution\__pycache__ のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02             1,228 base.cpython-313.pyc
+2025/05/02  11:02               178 __init__.cpython-313.pyc
+               2 個のファイル               1,406 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_internal\utils のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02             1,665 appdirs.py
+2025/05/02  11:02             2,399 compat.py
+2025/05/02  11:02             6,272 compatibility_tags.py
+2025/05/02  11:02               242 datetime.py
+2025/05/02  11:02             3,707 deprecation.py
+2025/05/02  11:02             3,196 direct_url_helpers.py
+2025/05/02  11:02             2,463 egg_link.py
+2025/05/02  11:02             3,064 entrypoints.py
+2025/05/02  11:02             4,950 filesystem.py
+2025/05/02  11:02               716 filetypes.py
+2025/05/02  11:02             3,734 glibc.py
+2025/05/02  11:02             4,972 hashes.py
+2025/05/02  11:02            11,845 logging.py
+2025/05/02  11:02            23,450 misc.py
+2025/05/02  11:02             2,142 packaging.py
+2025/05/02  11:02             1,392 retry.py
+2025/05/02  11:02             4,435 setuptools_build.py
+2025/05/02  11:02             8,988 subprocess.py
+2025/05/02  11:02             9,310 temp_dir.py
+2025/05/02  11:02            11,967 unpacking.py
+2025/05/02  11:02             1,599 urls.py
+2025/05/02  11:02             3,456 virtualenv.py
+2025/05/02  11:02             4,494 wheel.py
+2025/05/02  11:02             3,350 _jaraco_text.py
+2025/05/02  11:02             1,015 _log.py
+2025/05/02  11:02                 0 __init__.py
+2025/05/02  11:07    <DIR>          __pycache__
+              26 個のファイル             124,823 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_internal\utils\__pycache__ のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02             2,401 appdirs.cpython-313.pyc
+2025/05/02  11:02             2,911 compat.cpython-313.pyc
+2025/05/02  11:02             6,366 compatibility_tags.cpython-313.pyc
+2025/05/02  11:02               658 datetime.cpython-313.pyc
+2025/05/02  11:02             4,224 deprecation.cpython-313.pyc
+2025/05/02  11:02             3,612 direct_url_helpers.cpython-313.pyc
+2025/05/02  11:02             3,193 egg_link.cpython-313.pyc
+2025/05/02  11:02             4,053 entrypoints.cpython-313.pyc
+2025/05/02  11:02             7,418 filesystem.cpython-313.pyc
+2025/05/02  11:02             1,148 filetypes.cpython-313.pyc
+2025/05/02  11:02             2,428 glibc.cpython-313.pyc
+2025/05/02  11:02             7,720 hashes.cpython-313.pyc
+2025/05/02  11:02            14,176 logging.cpython-313.pyc
+2025/05/02  11:02            33,462 misc.cpython-313.pyc
+2025/05/02  11:02             2,583 packaging.cpython-313.pyc
+2025/05/02  11:02             2,088 retry.cpython-313.pyc
+2025/05/02  11:02             4,548 setuptools_build.cpython-313.pyc
+2025/05/02  11:02             8,850 subprocess.cpython-313.pyc
+2025/05/02  11:02            12,115 temp_dir.cpython-313.pyc
+2025/05/02  11:02            13,774 unpacking.cpython-313.pyc
+2025/05/02  11:02             2,108 urls.cpython-313.pyc
+2025/05/02  11:02             4,448 virtualenv.cpython-313.pyc
+2025/05/02  11:02             5,874 wheel.cpython-313.pyc
+2025/05/02  11:02             4,419 _jaraco_text.cpython-313.pyc
+2025/05/02  11:02             1,892 _log.cpython-313.pyc
+2025/05/02  11:02               173 __init__.cpython-313.pyc
+              26 個のファイル             156,642 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_internal\vcs のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02             3,528 bazaar.py
+2025/05/02  11:02            18,177 git.py
+2025/05/02  11:02             5,249 mercurial.py
+2025/05/02  11:02            11,735 subversion.py
+2025/05/02  11:02            22,440 versioncontrol.py
+2025/05/02  11:02               596 __init__.py
+2025/05/02  11:07    <DIR>          __pycache__
+               6 個のファイル              61,725 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_internal\vcs\__pycache__ のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02             5,117 bazaar.cpython-313.pyc
+2025/05/02  11:02            18,791 git.cpython-313.pyc
+2025/05/02  11:02             7,579 mercurial.cpython-313.pyc
+2025/05/02  11:02            12,648 subversion.cpython-313.pyc
+2025/05/02  11:02            28,273 versioncontrol.cpython-313.pyc
+2025/05/02  11:02               512 __init__.cpython-313.pyc
+               6 個のファイル              72,920 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_internal\__pycache__ のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02            15,127 build_env.cpython-313.pyc
+2025/05/02  11:02            12,878 cache.cpython-313.pyc
+2025/05/02  11:02            17,829 configuration.cpython-313.pyc
+2025/05/02  11:02            37,512 exceptions.cpython-313.pyc
+2025/05/02  11:02               643 main.cpython-313.pyc
+2025/05/02  11:02             5,202 pyproject.cpython-313.pyc
+2025/05/02  11:02            10,544 self_outdated_check.cpython-313.pyc
+2025/05/02  11:02            13,941 wheel_builder.cpython-313.pyc
+2025/05/02  11:02               758 __init__.cpython-313.pyc
+               9 個のファイル             114,434 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:07    <DIR>          cachecontrol
+2025/05/02  11:07    <DIR>          certifi
+2025/05/02  11:07    <DIR>          distlib
+2025/05/02  11:07    <DIR>          distro
+2025/05/02  11:07    <DIR>          idna
+2025/05/02  11:07    <DIR>          msgpack
+2025/05/02  11:07    <DIR>          packaging
+2025/05/02  11:07    <DIR>          pkg_resources
+2025/05/02  11:07    <DIR>          platformdirs
+2025/05/02  11:07    <DIR>          pygments
+2025/05/02  11:07    <DIR>          pyproject_hooks
+2025/05/02  11:07    <DIR>          requests
+2025/05/02  11:07    <DIR>          resolvelib
+2025/05/02  11:07    <DIR>          rich
+2025/05/02  11:07    <DIR>          tomli
+2025/05/02  11:07    <DIR>          truststore
+2025/05/02  11:02           134,499 typing_extensions.py
+2025/05/02  11:07    <DIR>          urllib3
+2025/05/02  11:02               333 vendor.txt
+2025/05/02  11:02             4,873 __init__.py
+2025/05/02  11:07    <DIR>          __pycache__
+               3 個のファイル             139,705 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\cachecontrol のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02             6,348 adapter.py
+2025/05/02  11:02             1,953 cache.py
+2025/05/02  11:07    <DIR>          caches
+2025/05/02  11:02            18,576 controller.py
+2025/05/02  11:02             4,291 filewrapper.py
+2025/05/02  11:02             4,881 heuristics.py
+2025/05/02  11:02                 0 py.typed
+2025/05/02  11:02             5,163 serialize.py
+2025/05/02  11:02             1,417 wrapper.py
+2025/05/02  11:02             1,737 _cmd.py
+2025/05/02  11:02               677 __init__.py
+2025/05/02  11:07    <DIR>          __pycache__
+              10 個のファイル              45,043 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\cachecontrol\caches のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02             5,399 file_cache.py
+2025/05/02  11:02             1,386 redis_cache.py
+2025/05/02  11:02               303 __init__.py
+2025/05/02  11:07    <DIR>          __pycache__
+               3 個のファイル               7,088 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\cachecontrol\caches\__pycache__ のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02             7,917 file_cache.cpython-313.pyc
+2025/05/02  11:02             2,798 redis_cache.cpython-313.pyc
+2025/05/02  11:02               417 __init__.cpython-313.pyc
+               3 個のファイル              11,132 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\cachecontrol\__pycache__ のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02             6,571 adapter.cpython-313.pyc
+2025/05/02  11:02             3,909 cache.cpython-313.pyc
+2025/05/02  11:02            16,580 controller.cpython-313.pyc
+2025/05/02  11:02             4,415 filewrapper.cpython-313.pyc
+2025/05/02  11:02             6,751 heuristics.cpython-313.pyc
+2025/05/02  11:02             5,348 serialize.cpython-313.pyc
+2025/05/02  11:02             1,676 wrapper.cpython-313.pyc
+2025/05/02  11:02             2,657 _cmd.cpython-313.pyc
+2025/05/02  11:02               879 __init__.cpython-313.pyc
+               9 個のファイル              48,786 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\certifi のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02           299,427 cacert.pem
+2025/05/02  11:02             4,486 core.py
+2025/05/02  11:02                 0 py.typed
+2025/05/02  11:02                94 __init__.py
+2025/05/02  11:02               255 __main__.py
+2025/05/02  11:07    <DIR>          __pycache__
+               5 個のファイル             304,262 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\certifi\__pycache__ のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02             3,209 core.cpython-313.pyc
+2025/05/02  11:02               300 __init__.cpython-313.pyc
+2025/05/02  11:02               629 __main__.cpython-313.pyc
+               3 個のファイル               4,138 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\distlib のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02            41,467 compat.py
+2025/05/02  11:02            51,160 database.py
+2025/05/02  11:02            20,797 index.py
+2025/05/02  11:02            51,026 locators.py
+2025/05/02  11:02            14,168 manifest.py
+2025/05/02  11:02             5,164 markers.py
+2025/05/02  11:02            38,724 metadata.py
+2025/05/02  11:02            10,820 resources.py
+2025/05/02  11:02            18,608 scripts.py
+2025/05/02  11:02            97,792 t32.exe
+2025/05/02  11:02           182,784 t64-arm.exe
+2025/05/02  11:02           108,032 t64.exe
+2025/05/02  11:02            66,682 util.py
+2025/05/02  11:02            23,727 version.py
+2025/05/02  11:02            91,648 w32.exe
+2025/05/02  11:02           168,448 w64-arm.exe
+2025/05/02  11:02           101,888 w64.exe
+2025/05/02  11:02            43,979 wheel.py
+2025/05/02  11:02               625 __init__.py
+2025/05/02  11:07    <DIR>          __pycache__
+              19 個のファイル           1,137,539 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\distlib\__pycache__ のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02            45,847 compat.cpython-313.pyc
+2025/05/02  11:02            65,217 database.cpython-313.pyc
+2025/05/02  11:02            23,534 index.cpython-313.pyc
+2025/05/02  11:02            59,513 locators.cpython-313.pyc
+2025/05/02  11:02            15,014 manifest.cpython-313.pyc
+2025/05/02  11:02             7,669 markers.cpython-313.pyc
+2025/05/02  11:02            42,572 metadata.cpython-313.pyc
+2025/05/02  11:02            17,639 resources.cpython-313.pyc
+2025/05/02  11:02            20,215 scripts.cpython-313.pyc
+2025/05/02  11:02            90,097 util.cpython-313.pyc
+2025/05/02  11:02            30,961 version.cpython-313.pyc
+2025/05/02  11:02            53,761 wheel.cpython-313.pyc
+2025/05/02  11:02             1,337 __init__.cpython-313.pyc
+              13 個のファイル             473,376 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\distro のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02            49,430 distro.py
+2025/05/02  11:02                 0 py.typed
+2025/05/02  11:02               981 __init__.py
+2025/05/02  11:02                64 __main__.py
+2025/05/02  11:07    <DIR>          __pycache__
+               4 個のファイル              50,475 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\distro\__pycache__ のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02            52,125 distro.cpython-313.pyc
+2025/05/02  11:02               942 __init__.cpython-313.pyc
+2025/05/02  11:02               276 __main__.cpython-313.pyc
+               3 個のファイル              53,343 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\idna のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02             3,422 codec.py
+2025/05/02  11:02               316 compat.py
+2025/05/02  11:02            13,239 core.py
+2025/05/02  11:02            78,306 idnadata.py
+2025/05/02  11:02             1,898 intranges.py
+2025/05/02  11:02                21 package_data.py
+2025/05/02  11:02                 0 py.typed
+2025/05/02  11:02           239,289 uts46data.py
+2025/05/02  11:02               868 __init__.py
+2025/05/02  11:07    <DIR>          __pycache__
+               9 個のファイル             337,359 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\idna\__pycache__ のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02             5,292 codec.cpython-313.pyc
+2025/05/02  11:02               878 compat.cpython-313.pyc
+2025/05/02  11:02            16,914 core.cpython-313.pyc
+2025/05/02  11:02            99,458 idnadata.cpython-313.pyc
+2025/05/02  11:02             2,591 intranges.cpython-313.pyc
+2025/05/02  11:02               199 package_data.cpython-313.pyc
+2025/05/02  11:02           158,992 uts46data.cpython-313.pyc
+2025/05/02  11:02               868 __init__.cpython-313.pyc
+               8 個のファイル             285,192 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\msgpack のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02             1,081 exceptions.py
+2025/05/02  11:02             5,726 ext.py
+2025/05/02  11:02            32,390 fallback.py
+2025/05/02  11:02             1,109 __init__.py
+2025/05/02  11:07    <DIR>          __pycache__
+               4 個のファイル              40,306 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\msgpack\__pycache__ のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02             2,146 exceptions.cpython-313.pyc
+2025/05/02  11:02             8,075 ext.cpython-313.pyc
+2025/05/02  11:02            42,050 fallback.cpython-313.pyc
+2025/05/02  11:02             1,697 __init__.cpython-313.pyc
+               4 個のファイル              53,968 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\packaging のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:07    <DIR>          licenses
+2025/05/02  11:02            10,561 markers.py
+2025/05/02  11:02            34,762 metadata.py
+2025/05/02  11:02                 0 py.typed
+2025/05/02  11:02             2,947 requirements.py
+2025/05/02  11:02            40,098 specifiers.py
+2025/05/02  11:02            21,014 tags.py
+2025/05/02  11:02             5,050 utils.py
+2025/05/02  11:02            16,688 version.py
+2025/05/02  11:02             3,306 _elffile.py
+2025/05/02  11:02             9,612 _manylinux.py
+2025/05/02  11:02             2,694 _musllinux.py
+2025/05/02  11:02            10,236 _parser.py
+2025/05/02  11:02             1,431 _structures.py
+2025/05/02  11:02             5,273 _tokenizer.py
+2025/05/02  11:02               494 __init__.py
+2025/05/02  11:07    <DIR>          __pycache__
+              15 個のファイル             164,166 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\packaging\licenses のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02            48,398 _spdx.py
+2025/05/02  11:02             5,727 __init__.py
+2025/05/02  11:07    <DIR>          __pycache__
+               2 個のファイル              54,125 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\packaging\licenses\__pycache__ のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02            47,422 _spdx.cpython-313.pyc
+2025/05/02  11:02             4,293 __init__.cpython-313.pyc
+               2 個のファイル              51,715 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\packaging\__pycache__ のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02            11,661 markers.cpython-313.pyc
+2025/05/02  11:02            27,355 metadata.cpython-313.pyc
+2025/05/02  11:02             4,616 requirements.cpython-313.pyc
+2025/05/02  11:02            37,651 specifiers.cpython-313.pyc
+2025/05/02  11:02            23,305 tags.cpython-313.pyc
+2025/05/02  11:02             6,740 utils.cpython-313.pyc
+2025/05/02  11:02            19,965 version.cpython-313.pyc
+2025/05/02  11:02             5,206 _elffile.cpython-313.pyc
+2025/05/02  11:02             9,991 _manylinux.cpython-313.pyc
+2025/05/02  11:02             4,605 _musllinux.cpython-313.pyc
+2025/05/02  11:02            14,171 _parser.cpython-313.pyc
+2025/05/02  11:02             3,335 _structures.cpython-313.pyc
+2025/05/02  11:02             8,055 _tokenizer.cpython-313.pyc
+2025/05/02  11:02               540 __init__.cpython-313.pyc
+              14 個のファイル             177,196 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\pkg_resources のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02           124,463 __init__.py
+2025/05/02  11:07    <DIR>          __pycache__
+               1 個のファイル             124,463 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\pkg_resources\__pycache__ のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02           161,600 __init__.cpython-313.pyc
+               1 個のファイル             161,600 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\platformdirs のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02             9,007 android.py
+2025/05/02  11:02             9,246 api.py
+2025/05/02  11:02             6,154 macos.py
+2025/05/02  11:02                 0 py.typed
+2025/05/02  11:02            10,393 unix.py
+2025/05/02  11:02               411 version.py
+2025/05/02  11:02            10,125 windows.py
+2025/05/02  11:02            22,344 __init__.py
+2025/05/02  11:02             1,505 __main__.py
+2025/05/02  11:07    <DIR>          __pycache__
+               9 個のファイル              69,185 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\platformdirs\__pycache__ のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02            10,757 android.cpython-313.pyc
+2025/05/02  11:02            13,420 api.cpython-313.pyc
+2025/05/02  11:02             8,810 macos.cpython-313.pyc
+2025/05/02  11:02            14,679 unix.cpython-313.pyc
+2025/05/02  11:02               589 version.cpython-313.pyc
+2025/05/02  11:02            13,766 windows.cpython-313.pyc
+2025/05/02  11:02            19,347 __init__.cpython-313.pyc
+2025/05/02  11:02             1,914 __main__.cpython-313.pyc
+               8 個のファイル              83,282 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\pygments のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02            23,656 cmdline.py
+2025/05/02  11:02             1,718 console.py
+2025/05/02  11:02             1,910 filter.py
+2025/05/02  11:07    <DIR>          filters
+2025/05/02  11:02             4,390 formatter.py
+2025/05/02  11:07    <DIR>          formatters
+2025/05/02  11:02            35,349 lexer.py
+2025/05/02  11:07    <DIR>          lexers
+2025/05/02  11:02             1,005 modeline.py
+2025/05/02  11:02             1,891 plugin.py
+2025/05/02  11:02             3,072 regexopt.py
+2025/05/02  11:02             3,092 scanner.py
+2025/05/02  11:02             7,981 sphinxext.py
+2025/05/02  11:02             6,420 style.py
+2025/05/02  11:07    <DIR>          styles
+2025/05/02  11:02             6,226 token.py
+2025/05/02  11:02            63,208 unistring.py
+2025/05/02  11:02            10,031 util.py
+2025/05/02  11:02             2,983 __init__.py
+2025/05/02  11:02               353 __main__.py
+2025/05/02  11:07    <DIR>          __pycache__
+              16 個のファイル             173,285 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\pygments\filters のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02            40,392 __init__.py
+2025/05/02  11:07    <DIR>          __pycache__
+               1 個のファイル              40,392 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\pygments\filters\__pycache__ のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02            37,952 __init__.cpython-313.pyc
+               1 個のファイル              37,952 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\pygments\formatters のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02             3,320 bbcode.py
+2025/05/02  11:02             5,106 groff.py
+2025/05/02  11:02            35,669 html.py
+2025/05/02  11:02            23,287 img.py
+2025/05/02  11:02             4,981 irc.py
+2025/05/02  11:02            19,306 latex.py
+2025/05/02  11:02             5,034 other.py
+2025/05/02  11:02             2,218 pangomarkup.py
+2025/05/02  11:02            11,957 rtf.py
+2025/05/02  11:02             7,174 svg.py
+2025/05/02  11:02             4,674 terminal.py
+2025/05/02  11:02            11,753 terminal256.py
+2025/05/02  11:02             4,176 _mapping.py
+2025/05/02  11:02             5,385 __init__.py
+2025/05/02  11:07    <DIR>          __pycache__
+              14 個のファイル             144,040 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\pygments\formatters\__pycache__ のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02             4,267 bbcode.cpython-313.pyc
+2025/05/02  11:02             7,419 groff.cpython-313.pyc
+2025/05/02  11:02            41,091 html.cpython-313.pyc
+2025/05/02  11:02            28,458 img.cpython-313.pyc
+2025/05/02  11:02             6,102 irc.cpython-313.pyc
+2025/05/02  11:02            20,368 latex.cpython-313.pyc
+2025/05/02  11:02             6,938 other.cpython-313.pyc
+2025/05/02  11:02             3,015 pangomarkup.cpython-313.pyc
+2025/05/02  11:02            13,853 rtf.cpython-313.pyc
+2025/05/02  11:02             9,156 svg.cpython-313.pyc
+2025/05/02  11:02             5,882 terminal.cpython-313.pyc
+2025/05/02  11:02            15,506 terminal256.cpython-313.pyc
+2025/05/02  11:02             4,198 _mapping.cpython-313.pyc
+2025/05/02  11:02             6,909 __init__.cpython-313.pyc
+              14 個のファイル             173,162 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\pygments\lexers のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02            53,687 python.py
+2025/05/02  11:02            76,097 _mapping.py
+2025/05/02  11:02            12,115 __init__.py
+2025/05/02  11:07    <DIR>          __pycache__
+               3 個のファイル             141,899 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\pygments\lexers\__pycache__ のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02            43,022 python.cpython-313.pyc
+2025/05/02  11:02            68,246 _mapping.cpython-313.pyc
+2025/05/02  11:02            14,737 __init__.cpython-313.pyc
+               3 個のファイル             126,005 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\pygments\styles のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02             3,312 _mapping.py
+2025/05/02  11:02             2,042 __init__.py
+2025/05/02  11:07    <DIR>          __pycache__
+               2 個のファイル               5,354 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\pygments\styles\__pycache__ のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02             3,631 _mapping.cpython-313.pyc
+2025/05/02  11:02             2,624 __init__.cpython-313.pyc
+               2 個のファイル               6,255 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\pygments\__pycache__ のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02            27,098 cmdline.cpython-313.pyc
+2025/05/02  11:02             2,583 console.cpython-313.pyc
+2025/05/02  11:02             3,209 filter.cpython-313.pyc
+2025/05/02  11:02             4,540 formatter.cpython-313.pyc
+2025/05/02  11:02            38,460 lexer.cpython-313.pyc
+2025/05/02  11:02             1,556 modeline.cpython-313.pyc
+2025/05/02  11:02             2,530 plugin.cpython-313.pyc
+2025/05/02  11:02             4,087 regexopt.cpython-313.pyc
+2025/05/02  11:02             4,666 scanner.cpython-313.pyc
+2025/05/02  11:02            12,223 sphinxext.cpython-313.pyc
+2025/05/02  11:02             6,922 style.cpython-313.pyc
+2025/05/02  11:02             8,226 token.cpython-313.pyc
+2025/05/02  11:02            33,008 unistring.cpython-313.pyc
+2025/05/02  11:02            14,156 util.cpython-313.pyc
+2025/05/02  11:02             3,415 __init__.cpython-313.pyc
+2025/05/02  11:02               695 __main__.cpython-313.pyc
+              16 個のファイル             167,374 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\pyproject_hooks のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02                 0 py.typed
+2025/05/02  11:02            14,936 _impl.py
+2025/05/02  11:07    <DIR>          _in_process
+2025/05/02  11:02               691 __init__.py
+2025/05/02  11:07    <DIR>          __pycache__
+               3 個のファイル              15,627 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\pyproject_hooks\_in_process のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02            12,216 _in_process.py
+2025/05/02  11:02               557 __init__.py
+2025/05/02  11:07    <DIR>          __pycache__
+               2 個のファイル              12,773 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\pyproject_hooks\_in_process\__pycache__ のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02            15,492 _in_process.cpython-313.pyc
+2025/05/02  11:02             1,067 __init__.cpython-313.pyc
+               2 個のファイル              16,559 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\pyproject_hooks\__pycache__ のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02            17,712 _impl.cpython-313.pyc
+2025/05/02  11:02               740 __init__.cpython-313.pyc
+               2 個のファイル              18,452 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\requests のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02            27,607 adapters.py
+2025/05/02  11:02             6,449 api.py
+2025/05/02  11:02            10,186 auth.py
+2025/05/02  11:02               441 certs.py
+2025/05/02  11:02             1,485 compat.py
+2025/05/02  11:02            18,590 cookies.py
+2025/05/02  11:02             4,272 exceptions.py
+2025/05/02  11:02             3,813 help.py
+2025/05/02  11:02               733 hooks.py
+2025/05/02  11:02            35,483 models.py
+2025/05/02  11:02             1,057 packages.py
+2025/05/02  11:02            30,495 sessions.py
+2025/05/02  11:02             4,322 status_codes.py
+2025/05/02  11:02             2,912 structures.py
+2025/05/02  11:02            33,631 utils.py
+2025/05/02  11:02             1,495 _internal_utils.py
+2025/05/02  11:02             5,057 __init__.py
+2025/05/02  11:07    <DIR>          __pycache__
+2025/05/02  11:02               435 __version__.py
+              18 個のファイル             188,463 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\requests\__pycache__ のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02            27,456 adapters.cpython-313.pyc
+2025/05/02  11:02             6,853 api.cpython-313.pyc
+2025/05/02  11:02            14,215 auth.cpython-313.pyc
+2025/05/02  11:02               663 certs.cpython-313.pyc
+2025/05/02  11:02             1,660 compat.cpython-313.pyc
+2025/05/02  11:02            25,010 cookies.cpython-313.pyc
+2025/05/02  11:02             8,006 exceptions.cpython-313.pyc
+2025/05/02  11:02             4,244 help.cpython-313.pyc
+2025/05/02  11:02             1,077 hooks.cpython-313.pyc
+2025/05/02  11:02            35,838 models.cpython-313.pyc
+2025/05/02  11:02             1,297 packages.cpython-313.pyc
+2025/05/02  11:02            27,369 sessions.cpython-313.pyc
+2025/05/02  11:02             6,027 status_codes.cpython-313.pyc
+2025/05/02  11:02             5,630 structures.cpython-313.pyc
+2025/05/02  11:02            36,503 utils.cpython-313.pyc
+2025/05/02  11:02             2,001 _internal_utils.cpython-313.pyc
+2025/05/02  11:02             5,258 __init__.cpython-313.pyc
+2025/05/02  11:02               567 __version__.cpython-313.pyc
+              18 個のファイル             209,674 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\resolvelib のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:07    <DIR>          compat
+2025/05/02  11:02             5,871 providers.py
+2025/05/02  11:02                 0 py.typed
+2025/05/02  11:02             1,601 reporters.py
+2025/05/02  11:02            20,511 resolvers.py
+2025/05/02  11:02             4,963 structs.py
+2025/05/02  11:02               537 __init__.py
+2025/05/02  11:07    <DIR>          __pycache__
+               6 個のファイル              33,483 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\resolvelib\compat のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02               156 collections_abc.py
+2025/05/02  11:02                 0 __init__.py
+2025/05/02  11:07    <DIR>          __pycache__
+               2 個のファイル                 156 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\resolvelib\compat\__pycache__ のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02               405 collections_abc.cpython-313.pyc
+2025/05/02  11:02               183 __init__.cpython-313.pyc
+               2 個のファイル                 588 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\resolvelib\__pycache__ のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02             6,333 providers.cpython-313.pyc
+2025/05/02  11:02             2,591 reporters.cpython-313.pyc
+2025/05/02  11:02            25,748 resolvers.cpython-313.pyc
+2025/05/02  11:02            10,678 structs.cpython-313.pyc
+2025/05/02  11:02               617 __init__.cpython-313.pyc
+               5 個のファイル              45,967 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\rich のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02               890 abc.py
+2025/05/02  11:02            10,469 align.py
+2025/05/02  11:02             6,921 ansi.py
+2025/05/02  11:02             3,263 bar.py
+2025/05/02  11:02            10,831 box.py
+2025/05/02  11:02             5,130 cells.py
+2025/05/02  11:02            18,211 color.py
+2025/05/02  11:02             1,054 color_triplet.py
+2025/05/02  11:02             7,131 columns.py
+2025/05/02  11:02           100,156 console.py
+2025/05/02  11:02             1,288 constrain.py
+2025/05/02  11:02             5,502 containers.py
+2025/05/02  11:02             6,630 control.py
+2025/05/02  11:02             8,159 default_styles.py
+2025/05/02  11:02               972 diagnose.py
+2025/05/02  11:02             2,501 emoji.py
+2025/05/02  11:02               642 errors.py
+2025/05/02  11:02             2,484 filesize.py
+2025/05/02  11:02             1,683 file_proxy.py
+2025/05/02  11:02             9,586 highlighter.py
+2025/05/02  11:02             5,031 json.py
+2025/05/02  11:02             3,252 jupyter.py
+2025/05/02  11:02            14,004 layout.py
+2025/05/02  11:02            14,270 live.py
+2025/05/02  11:02             3,666 live_render.py
+2025/05/02  11:02            12,458 logging.py
+2025/05/02  11:02             8,451 markup.py
+2025/05/02  11:02             5,305 measure.py
+2025/05/02  11:02             4,908 padding.py
+2025/05/02  11:02               828 pager.py
+2025/05/02  11:02             3,396 palette.py
+2025/05/02  11:02            11,235 panel.py
+2025/05/02  11:02            36,391 pretty.py
+2025/05/02  11:02            60,357 progress.py
+2025/05/02  11:02             8,162 progress_bar.py
+2025/05/02  11:02            12,447 prompt.py
+2025/05/02  11:02             1,391 protocol.py
+2025/05/02  11:02                 0 py.typed
+2025/05/02  11:02               166 region.py
+2025/05/02  11:02             4,431 repr.py
+2025/05/02  11:02             4,602 rule.py
+2025/05/02  11:02             2,843 scope.py
+2025/05/02  11:02             1,591 screen.py
+2025/05/02  11:02            24,743 segment.py
+2025/05/02  11:02             4,364 spinner.py
+2025/05/02  11:02             4,424 status.py
+2025/05/02  11:02            27,067 style.py
+2025/05/02  11:02             1,258 styled.py
+2025/05/02  11:02            35,763 syntax.py
+2025/05/02  11:02            40,103 table.py
+2025/05/02  11:02             3,370 terminal_theme.py
+2025/05/02  11:02            47,552 text.py
+2025/05/02  11:02             3,771 theme.py
+2025/05/02  11:02               102 themes.py
+2025/05/02  11:02            31,797 traceback.py
+2025/05/02  11:02             9,451 tree.py
+2025/05/02  11:02            10,209 _cell_widths.py
+2025/05/02  11:02           140,235 _emoji_codes.py
+2025/05/02  11:02             1,064 _emoji_replace.py
+2025/05/02  11:02             2,128 _export_format.py
+2025/05/02  11:02               265 _extension.py
+2025/05/02  11:02               799 _fileno.py
+2025/05/02  11:02             9,655 _inspect.py
+2025/05/02  11:02             3,225 _log_render.py
+2025/05/02  11:02             1,236 _loop.py
+2025/05/02  11:02             1,394 _null_file.py
+2025/05/02  11:02             7,063 _palettes.py
+2025/05/02  11:02               423 _pick.py
+2025/05/02  11:02             5,471 _ratio.py
+2025/05/02  11:02            19,919 _spinners.py
+2025/05/02  11:02               351 _stack.py
+2025/05/02  11:02               417 _timer.py
+2025/05/02  11:02            22,755 _win32_console.py
+2025/05/02  11:02             1,925 _windows.py
+2025/05/02  11:02             2,783 _windows_renderer.py
+2025/05/02  11:02             3,404 _wrap.py
+2025/05/02  11:02             6,090 __init__.py
+2025/05/02  11:02             8,477 __main__.py
+2025/05/02  11:07    <DIR>          __pycache__
+              78 個のファイル             905,741 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\rich\__pycache__ のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02             1,671 abc.cpython-313.pyc
+2025/05/02  11:02            12,555 align.cpython-313.pyc
+2025/05/02  11:02             9,243 ansi.cpython-313.pyc
+2025/05/02  11:02             4,316 bar.cpython-313.pyc
+2025/05/02  11:02            11,805 box.cpython-313.pyc
+2025/05/02  11:02             5,486 cells.cpython-313.pyc
+2025/05/02  11:02            26,513 color.cpython-313.pyc
+2025/05/02  11:02             1,688 color_triplet.cpython-313.pyc
+2025/05/02  11:02             8,699 columns.cpython-313.pyc
+2025/05/02  11:02           113,719 console.cpython-313.pyc
+2025/05/02  11:02             2,294 constrain.cpython-313.pyc
+2025/05/02  11:02             9,237 containers.cpython-313.pyc
+2025/05/02  11:02            10,895 control.cpython-313.pyc
+2025/05/02  11:02             9,607 default_styles.cpython-313.pyc
+2025/05/02  11:02             1,477 diagnose.cpython-313.pyc
+2025/05/02  11:02             4,233 emoji.cpython-313.pyc
+2025/05/02  11:02             2,030 errors.cpython-313.pyc
+2025/05/02  11:02             2,940 filesize.cpython-313.pyc
+2025/05/02  11:02             3,690 file_proxy.cpython-313.pyc
+2025/05/02  11:02             9,960 highlighter.cpython-313.pyc
+2025/05/02  11:02             5,901 json.cpython-313.pyc
+2025/05/02  11:02             5,373 jupyter.cpython-313.pyc
+2025/05/02  11:02            20,156 layout.cpython-313.pyc
+2025/05/02  11:02            19,621 live.cpython-313.pyc
+2025/05/02  11:02             4,852 live_render.cpython-313.pyc
+2025/05/02  11:02            14,002 logging.cpython-313.pyc
+2025/05/02  11:02             9,704 markup.cpython-313.pyc
+2025/05/02  11:02             6,181 measure.cpython-313.pyc
+2025/05/02  11:02             6,928 padding.cpython-313.pyc
+2025/05/02  11:02             1,868 pager.cpython-313.pyc
+2025/05/02  11:02             5,295 palette.cpython-313.pyc
+2025/05/02  11:02            12,729 panel.cpython-313.pyc
+2025/05/02  11:02            41,267 pretty.cpython-313.pyc
+2025/05/02  11:02            75,515 progress.cpython-313.pyc
+2025/05/02  11:02            10,432 progress_bar.cpython-313.pyc
+2025/05/02  11:02            15,791 prompt.cpython-313.pyc
+2025/05/02  11:02             1,851 protocol.cpython-313.pyc
+2025/05/02  11:02               608 region.cpython-313.pyc
+2025/05/02  11:02             6,728 repr.cpython-313.pyc
+2025/05/02  11:02             6,602 rule.cpython-313.pyc
+2025/05/02  11:02             3,777 scope.cpython-313.pyc
+2025/05/02  11:02             2,533 screen.cpython-313.pyc
+2025/05/02  11:02            28,259 segment.cpython-313.pyc
+2025/05/02  11:02             6,138 spinner.cpython-313.pyc
+2025/05/02  11:02             6,009 status.cpython-313.pyc
+2025/05/02  11:02            34,389 style.cpython-313.pyc
+2025/05/02  11:02             2,170 styled.cpython-313.pyc
+2025/05/02  11:02            39,821 syntax.cpython-313.pyc
+2025/05/02  11:02            44,363 table.cpython-313.pyc
+2025/05/02  11:02             3,389 terminal_theme.cpython-313.pyc
+2025/05/02  11:02            60,268 text.cpython-313.pyc
+2025/05/02  11:02             6,305 theme.cpython-313.pyc
+2025/05/02  11:02               297 themes.cpython-313.pyc
+2025/05/02  11:02            33,200 traceback.cpython-313.pyc
+2025/05/02  11:02            11,902 tree.cpython-313.pyc
+2025/05/02  11:02             7,855 _cell_widths.cpython-313.pyc
+2025/05/02  11:02           205,959 _emoji_codes.cpython-313.pyc
+2025/05/02  11:02             1,727 _emoji_replace.cpython-313.pyc
+2025/05/02  11:02             2,332 _export_format.cpython-313.pyc
+2025/05/02  11:02               522 _extension.cpython-313.pyc
+2025/05/02  11:02               824 _fileno.cpython-313.pyc
+2025/05/02  11:02            12,278 _inspect.cpython-313.pyc
+2025/05/02  11:02             4,308 _log_render.cpython-313.pyc
+2025/05/02  11:02             1,883 _loop.cpython-313.pyc
+2025/05/02  11:02             3,718 _null_file.cpython-313.pyc
+2025/05/02  11:02             5,143 _palettes.cpython-313.pyc
+2025/05/02  11:02               702 _pick.cpython-313.pyc
+2025/05/02  11:02             6,583 _ratio.cpython-313.pyc
+2025/05/02  11:02            13,162 _spinners.cpython-313.pyc
+2025/05/02  11:02             1,010 _stack.cpython-313.pyc
+2025/05/02  11:02               851 _timer.cpython-313.pyc
+2025/05/02  11:02            28,322 _win32_console.cpython-313.pyc
+2025/05/02  11:02             2,549 _windows.cpython-313.pyc
+2025/05/02  11:02             3,596 _windows_renderer.cpython-313.pyc
+2025/05/02  11:02             3,308 _wrap.cpython-313.pyc
+2025/05/02  11:02             6,857 __init__.cpython-313.pyc
+2025/05/02  11:02            10,158 __main__.cpython-313.pyc
+              77 個のファイル           1,129,929 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\tomli のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02                26 py.typed
+2025/05/02  11:02            25,591 _parser.py
+2025/05/02  11:02             3,171 _re.py
+2025/05/02  11:02               254 _types.py
+2025/05/02  11:02               314 __init__.py
+2025/05/02  11:07    <DIR>          __pycache__
+               5 個のファイル              29,356 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\tomli\__pycache__ のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02            29,564 _parser.cpython-313.pyc
+2025/05/02  11:02             4,010 _re.cpython-313.pyc
+2025/05/02  11:02               349 _types.cpython-313.pyc
+2025/05/02  11:02               321 __init__.cpython-313.pyc
+               4 個のファイル              34,244 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\truststore のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02                 0 py.typed
+2025/05/02  11:02            10,555 _api.py
+2025/05/02  11:02            20,503 _macos.py
+2025/05/02  11:02             2,324 _openssl.py
+2025/05/02  11:02             1,130 _ssl_constants.py
+2025/05/02  11:02            17,993 _windows.py
+2025/05/02  11:02             1,264 __init__.py
+2025/05/02  11:07    <DIR>          __pycache__
+               7 個のファイル              53,769 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\truststore\__pycache__ のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02            16,754 _api.cpython-313.pyc
+2025/05/02  11:02            19,284 _macos.cpython-313.pyc
+2025/05/02  11:02             2,271 _openssl.cpython-313.pyc
+2025/05/02  11:02             1,082 _ssl_constants.cpython-313.pyc
+2025/05/02  11:02            16,228 _windows.cpython-313.pyc
+2025/05/02  11:02             1,359 __init__.cpython-313.pyc
+               6 個のファイル              56,978 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\urllib3 のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02            20,314 connection.py
+2025/05/02  11:02            40,408 connectionpool.py
+2025/05/02  11:07    <DIR>          contrib
+2025/05/02  11:02             8,217 exceptions.py
+2025/05/02  11:02             8,579 fields.py
+2025/05/02  11:02             2,440 filepost.py
+2025/05/02  11:07    <DIR>          packages
+2025/05/02  11:02            19,990 poolmanager.py
+2025/05/02  11:02             6,691 request.py
+2025/05/02  11:02            30,641 response.py
+2025/05/02  11:07    <DIR>          util
+2025/05/02  11:02            11,372 _collections.py
+2025/05/02  11:02                64 _version.py
+2025/05/02  11:02             3,333 __init__.py
+2025/05/02  11:07    <DIR>          __pycache__
+              11 個のファイル             152,049 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\urllib3\contrib のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02            11,036 appengine.py
+2025/05/02  11:02             4,528 ntlmpool.py
+2025/05/02  11:02            17,081 pyopenssl.py
+2025/05/02  11:02            34,446 securetransport.py
+2025/05/02  11:02             7,097 socks.py
+2025/05/02  11:02               957 _appengine_environ.py
+2025/05/02  11:07    <DIR>          _securetransport
+2025/05/02  11:02                 0 __init__.py
+2025/05/02  11:07    <DIR>          __pycache__
+               7 個のファイル              75,145 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\urllib3\contrib\_securetransport のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02            17,632 bindings.py
+2025/05/02  11:02            13,922 low_level.py
+2025/05/02  11:02                 0 __init__.py
+2025/05/02  11:07    <DIR>          __pycache__
+               3 個のファイル              31,554 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\urllib3\contrib\_securetransport\__pycache__ のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02            17,484 bindings.cpython-313.pyc
+2025/05/02  11:02            14,801 low_level.cpython-313.pyc
+2025/05/02  11:02               198 __init__.cpython-313.pyc
+               3 個のファイル              32,483 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\urllib3\contrib\__pycache__ のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02            11,751 appengine.cpython-313.pyc
+2025/05/02  11:02             5,719 ntlmpool.cpython-313.pyc
+2025/05/02  11:02            24,768 pyopenssl.cpython-313.pyc
+2025/05/02  11:02            35,963 securetransport.cpython-313.pyc
+2025/05/02  11:02             7,713 socks.cpython-313.pyc
+2025/05/02  11:02             1,859 _appengine_environ.cpython-313.pyc
+2025/05/02  11:02               181 __init__.cpython-313.pyc
+               7 個のファイル              87,954 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\urllib3\packages のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:07    <DIR>          backports
+2025/05/02  11:02            34,665 six.py
+2025/05/02  11:02                 0 __init__.py
+2025/05/02  11:07    <DIR>          __pycache__
+               2 個のファイル              34,665 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\urllib3\packages\backports のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02             1,417 makefile.py
+2025/05/02  11:02             5,343 weakref_finalize.py
+2025/05/02  11:02                 0 __init__.py
+2025/05/02  11:07    <DIR>          __pycache__
+               3 個のファイル               6,760 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\urllib3\packages\backports\__pycache__ のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02             1,916 makefile.cpython-313.pyc
+2025/05/02  11:02             7,511 weakref_finalize.cpython-313.pyc
+2025/05/02  11:02               192 __init__.cpython-313.pyc
+               3 個のファイル               9,619 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\urllib3\packages\__pycache__ のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02            42,002 six.cpython-313.pyc
+2025/05/02  11:02               182 __init__.cpython-313.pyc
+               2 個のファイル              42,184 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\urllib3\util のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02             4,901 connection.py
+2025/05/02  11:02             1,605 proxy.py
+2025/05/02  11:02               498 queue.py
+2025/05/02  11:02             3,997 request.py
+2025/05/02  11:02             3,510 response.py
+2025/05/02  11:02            22,050 retry.py
+2025/05/02  11:02             6,895 ssltransport.py
+2025/05/02  11:02            17,460 ssl_.py
+2025/05/02  11:02             5,758 ssl_match_hostname.py
+2025/05/02  11:02            10,168 timeout.py
+2025/05/02  11:02            14,296 url.py
+2025/05/02  11:02             5,403 wait.py
+2025/05/02  11:02             1,155 __init__.py
+2025/05/02  11:07    <DIR>          __pycache__
+              13 個のファイル              97,696 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\urllib3\util\__pycache__ のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02             4,760 connection.cpython-313.pyc
+2025/05/02  11:02             1,558 proxy.cpython-313.pyc
+2025/05/02  11:02             1,407 queue.cpython-313.pyc
+2025/05/02  11:02             4,127 request.cpython-313.pyc
+2025/05/02  11:02             3,026 response.cpython-313.pyc
+2025/05/02  11:02            21,533 retry.cpython-313.pyc
+2025/05/02  11:02            10,916 ssltransport.cpython-313.pyc
+2025/05/02  11:02            15,482 ssl_.cpython-313.pyc
+2025/05/02  11:02             5,201 ssl_match_hostname.cpython-313.pyc
+2025/05/02  11:02            10,661 timeout.cpython-313.pyc
+2025/05/02  11:02            15,918 url.cpython-313.pyc
+2025/05/02  11:02             4,560 wait.cpython-313.pyc
+2025/05/02  11:02             1,129 __init__.cpython-313.pyc
+              13 個のファイル             100,278 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\urllib3\__pycache__ のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02            20,710 connection.cpython-313.pyc
+2025/05/02  11:02            36,042 connectionpool.cpython-313.pyc
+2025/05/02  11:02            14,162 exceptions.cpython-313.pyc
+2025/05/02  11:02            10,169 fields.cpython-313.pyc
+2025/05/02  11:02             3,978 filepost.cpython-313.pyc
+2025/05/02  11:02            19,968 poolmanager.cpython-313.pyc
+2025/05/02  11:02             6,950 request.cpython-313.pyc
+2025/05/02  11:02            34,258 response.cpython-313.pyc
+2025/05/02  11:02            16,415 _collections.cpython-313.pyc
+2025/05/02  11:02               201 _version.cpython-313.pyc
+2025/05/02  11:02             3,336 __init__.cpython-313.pyc
+              11 個のファイル             166,189 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\_vendor\__pycache__ のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02           142,760 typing_extensions.cpython-313.pyc
+2025/05/02  11:02             4,533 __init__.cpython-313.pyc
+               2 個のファイル             147,293 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip\__pycache__ のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02               664 __init__.cpython-313.pyc
+2025/05/02  11:02               826 __main__.cpython-313.pyc
+2025/05/02  11:02             2,263 __pip-runner__.cpython-313.pyc
+               3 個のファイル               3,753 バイト
+
+ c:\disc-app\venv\Lib\site-packages\pip-25.0.1.dist-info のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02            11,018 AUTHORS.txt
+2025/05/02  11:02                87 entry_points.txt
+2025/05/02  11:02                 4 INSTALLER
+2025/05/02  11:02             1,093 LICENSE.txt
+2025/05/02  11:02             3,677 METADATA
+2025/05/02  11:02            65,740 RECORD
+2025/05/02  11:02                 0 REQUESTED
+2025/05/02  11:02                 4 top_level.txt
+2025/05/02  11:02                91 WHEEL
+               9 個のファイル              81,714 バイト
+
+ c:\disc-app\venv\Scripts のディレクトリ
+
+2025/05/02  11:07    <DIR>          .
+2025/05/02  11:07    <DIR>          ..
+2025/05/02  11:02             2,170 activate
+2025/05/02  11:02             1,002 activate.bat
+2025/05/02  11:02             2,261 activate.fish
+2025/04/08  15:46            27,969 Activate.ps1
+2025/04/08  15:45               393 deactivate.bat
+2025/05/02  11:02           108,402 pip.exe
+2025/05/02  11:02           108,402 pip3.13.exe
+2025/05/02  11:02           108,402 pip3.exe
+2025/04/08  15:46           254,696 python.exe
+2025/04/08  15:46           250,360 pythonw.exe
+              10 個のファイル             864,057 バイト
+
+ c:\disc-app\__pycache__ のディレクトリ
+
+2025/05/07  10:47    <DIR>          .
+2025/05/08  16:41    <DIR>          ..
+2025/05/07  10:47             4,389 app.cpython-313.pyc
+2025/05/02  11:09             1,282 config.cpython-313.pyc
+               2 個のファイル               5,671 バイト
+
+ c:\disc-app\要件書 のディレクトリ
+
+2025/05/07  18:14    <DIR>          .
+2025/05/08  16:41    <DIR>          ..
+2025/05/07  15:18            59,399 db.xlsx.bk1
+2025/05/02  09:24             2,033 DISC測定アプリケーション構造.txt
+2025/05/02  10:10         1,807,367 ステージⅠ.jpg
+2025/05/02  10:16         1,929,677 ステージⅡ.jpg
+2025/05/02  10:11         4,172,856 ステージⅢ.jpg
+2025/05/02  10:21             4,229 要件定義書.txt
+               6 個のファイル           7,975,561 バイト
+
+     ファイルの総数:
+             933 個のファイル          20,760,355 バイト
+             358 個のディレクトリ  29,232,992,256 バイトの空き領域

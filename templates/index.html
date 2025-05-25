@@ -1,0 +1,146 @@
+{% extends "base.html" %}
+
+{% block title %}DISC測定 - ホーム{% endblock %}
+
+{% block content %}
+<div class="home-container">
+    <div class="jumbotron text-center p-5 rounded bg-light">
+        <h1 class="display-4">DISC理論測定アプリへようこそ</h1>
+        <p class="lead">行動特性を理解し、よりよいコミュニケーションと自己理解のために</p>
+        <hr class="my-4">
+        <p>DISC理論は、人の行動パターンを4つの主要タイプに分類する心理学的フレームワークです。</p>
+        <div class="d-flex justify-content-center">
+            {% if current_user.is_authenticated %}
+            <a class="btn btn-primary btn-lg" href="{{ url_for('disc.test') }}" role="button">
+                <i class="fas fa-clipboard-check me-2"></i>測定を開始する
+            </a>
+            {% else %}
+            <a class="btn btn-primary btn-lg" href="{{ url_for('auth.login') }}" role="button">
+                <i class="fas fa-sign-in-alt me-2"></i>ログインして始める
+            </a>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-3">
+            <div class="card d-type">
+                <div class="card-body text-center">
+                    <h3 class="card-title">D型</h3>
+                    <h5>主導型</h5>
+                    <p class="card-text">決断力があり、問題解決を得意とします。目標達成に向けて積極的に行動します。</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card i-type">
+                <div class="card-body text-center">
+                    <h3 class="card-title">I型</h3>
+                    <h5>感化型</h5>
+                    <p class="card-text">社交的で、人との関わりを大切にします。コミュニケーション能力が高く、楽観的です。</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card s-type">
+                <div class="card-body text-center">
+                    <h3 class="card-title">S型</h3>
+                    <h5>安定型</h5>
+                    <p class="card-text">協調性があり、チームワークを重視します。忍耐強く、周囲との調和を大切にします。</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card c-type">
+                <div class="card-body text-center">
+                    <h3 class="card-title">C型</h3>
+                    <h5>慎重型</h5>
+                    <p class="card-text">分析力に優れ、緻密な思考を持ちます。正確さと品質を重視する傾向があります。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">DISC理論とは？</h3>
+                    <p class="card-text">
+                        DISC理論は、心理学者ウィリアム・マーストンによって開発された行動特性分析のフレームワークです。
+                        人の行動パターンを4つの主要タイプ（D：主導型、I：感化型、S：安定型、C：慎重型）に分類し、
+                        それぞれの特性を理解することで、効果的なコミュニケーションと人間関係の構築に役立てることができます。
+                    </p>
+                    <p class="card-text">
+                        このアプリケーションでは、24問の質問に答えることで、あなたのDISC特性を測定し、
+                        詳細な分析結果を提供します。これにより、自分自身の強みや傾向を理解し、
+                        より効果的なコミュニケーションや自己成長に活かすことができます。
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">測定の流れ</h3>
+                    <ol class="list-group list-group-numbered mb-3">
+                        <li class="list-group-item">アカウントを作成またはログインします</li>
+                        <li class="list-group-item">24問のDISC診断テストに回答します</li>
+                        <li class="list-group-item">あなたの行動特性に関する詳細な分析結果を確認できます</li>
+                        <li class="list-group-item">過去の結果を履歴から閲覧し、変化を追跡できます</li>
+                    </ol>
+                    {% if current_user.is_authenticated %}
+                    <div class="text-center">
+                        <a href="{{ url_for('disc.test') }}" class="btn btn-primary">今すぐ測定を開始</a>
+                    </div>
+                    {% else %}
+                    <div class="text-center">
+                        <a href="{{ url_for('auth.register') }}" class="btn btn-primary">アカウント登録</a>
+                        <a href="{{ url_for('auth.login') }}" class="btn btn-outline-primary ms-2">ログイン</a>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    /* DISCタイプカードのスタイル */
+    .d-type {
+        background-color: rgba(255, 0, 0, 0.1);
+        border-left: 5px solid red;
+    }
+    .i-type {
+        background-color: rgba(255, 255, 0, 0.1);
+        border-left: 5px solid gold;
+    }
+    .s-type {
+        background-color: rgba(0, 128, 0, 0.1);
+        border-left: 5px solid green;
+    }
+    .c-type {
+        background-color: rgba(0, 0, 255, 0.1);
+        border-left: 5px solid blue;
+    }
+    
+    /* カードのホバーエフェクト */
+    .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    /* ジャンボトロンスタイルの調整 */
+    .jumbotron {
+        background: linear-gradient(135deg, #87CEEB 0%, #5F9EA0 100%);
+        color: white;
+        border-radius: 15px;
+    }
+</style>
+{% endblock %}

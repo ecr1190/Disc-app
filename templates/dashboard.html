@@ -1,0 +1,650 @@
+{% extends "base.html" %}
+
+{% block title %}管理者ダッシュボード{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+    <div class="card mb-4">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0"><i class="fas fa-tachometer-alt me-2"></i>管理者ダッシュボード</h4>
+        </div>
+        <div class="card-body">
+            <div class="row mb-4">
+                <div class="col-md-3">
+                    <div class="stat-card d-type">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h5>ユーザー数</h5>
+                            <h2>{{ users|length }}</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-card i-type">
+                        <div class="stat-icon">
+                            <i class="fas fa-clipboard-check"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h5>総測定回数</h5>
+                            <h2>
+                                {% set total_tests = namespace(value=0) %}
+                                {% for user in users %}
+                                    {% set total_tests.value = total_tests.value + user.test_results|length %}
+                                {% endfor %}
+                                {{ total_tests.value }}
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-card s-type">
+                        <div class="stat-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h5>組織数</h5>
+                            <h2>
+                                {% set teams = [] %}
+                                {% for user in users %}
+                                    {% if user.team_id and user.team_id not in teams %}
+                                        {% set _ = teams.append(user.team_id) %}
+                                    {% endif %}
+                                {% endfor %}
+                                {{ teams|length }}
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-card c-type">
+                        <div class="stat-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h5>本日の測定数</h5>
+                            <h2>
+                                {% set today_tests = namespace(value=0) %}
+                                {% for user in users %}
+                                    {% for test in user.test_results %}
+                                        {% if test.date_taken.date() == moment().date() %}
+                                            {% set today_tests.value = today_tests.value + 1 %}
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endfor %}
+                                {{ today_tests.value }}
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 組織別メンバー結果表示セクション -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="fas fa-users-cog me-2"></i>組織別メンバー結果</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row mb-3">
+                                <div class="col-md-4">
+                                    <label for="teamFilter" class="form-label">組織選択</label>
+                                    <select id="teamFilter" class="form-select">
+                                        <option value="">全組織</option>
+                                        {% set teams = [] %}
+                                        {% for user in users %}
+                                            {% if user.team_id and user.team_id not in teams %}
+                                                {% set _ = teams.append(user.team_id) %}
+                                                <option value="{{ user.team_id }}">組織 {{ user.team_id }}</option>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="resultFilter" class="form-label">結果フィルタ</label>
+                                    <select id="resultFilter" class="form-select">
+                                        <option value="all">全メンバー</option>
+                                        <option value="tested">測定済みのみ</option>
+                                        <option value="untested">未測定のみ</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label">&nbsp;</label>
+                                    <div>
+                                        <button id="refreshData" class="btn btn-primary">
+                                            <i class="fas fa-sync-alt me-2"></i>データ更新
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover" id="membersTable">
+                                    <thead>
+                                        <tr>
+                                            <th>ユーザー名</th>
+                                            <th>組織ID</th>
+                                            <th>測定回数</th>
+                                            <th>最新測定日</th>
+                                            <th>最新DISC値</th>
+                                            <th>プロファイル</th>
+                                            <th>アクション</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="membersTableBody">
+                                        {% for user in users %}
+                                        <tr data-team-id="{{ user.team_id or 'none' }}" data-test-count="{{ user.test_results|length }}">
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-sm bg-primary text-white rounded-circle me-2 d-flex align-items-center justify-content-center">
+                                                        {{ user.username[0]|upper }}
+                                                    </div>
+                                                    {{ user.username }}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                {% if user.team_id %}
+                                                    <span class="badge bg-info">組織 {{ user.team_id }}</span>
+                                                {% else %}
+                                                    <span class="badge bg-secondary">未所属</span>
+                                                {% endif %}
+                                            </td>
+                                            <td>
+                                                <span class="badge bg-success">{{ user.test_results|length }}</span>
+                                            </td>
+                                            <td>
+                                                {% if user.test_results %}
+                                                    {% set latest_result = user.test_results|sort(attribute='date_taken', reverse=true)|first %}
+                                                    {{ latest_result.date_taken.strftime('%Y/%m/%d') }}
+                                                {% else %}
+                                                    <span class="text-muted">未測定</span>
+                                                {% endif %}
+                                            </td>
+                                            <td>
+                                                {% if user.test_results %}
+                                                    {% set latest_result = user.test_results|sort(attribute='date_taken', reverse=true)|first %}
+                                                    <div class="disc-values">
+                                                        <span class="disc-value d-value" title="D型">{{ latest_result.graph_3_d }}</span>
+                                                        <span class="disc-value i-value" title="I型">{{ latest_result.graph_3_i }}</span>
+                                                        <span class="disc-value s-value" title="S型">{{ latest_result.graph_3_s }}</span>
+                                                        <span class="disc-value c-value" title="C型">{{ latest_result.graph_3_c }}</span>
+                                                        {% if latest_result.graph_3_n > 0 %}
+                                                        <span class="disc-value n-value" title="N型">{{ latest_result.graph_3_n }}</span>
+                                                        {% endif %}
+                                                    </div>
+                                                {% else %}
+                                                    <span class="text-muted">-</span>
+                                                {% endif %}
+                                            </td>
+                                            <td>
+                                                {% if user.test_results %}
+                                                    {% set latest_result = user.test_results|sort(attribute='date_taken', reverse=true)|first %}
+                                                    <span class="badge bg-primary">{{ latest_result.profile_pattern_3 }}</span>
+                                                {% else %}
+                                                    <span class="text-muted">-</span>
+                                                {% endif %}
+                                            </td>
+                                            <td>
+                                                <div class="btn-group" role="group" aria-label="アクション">
+                                                    {% if user.test_results %}
+                                                        {% set latest_result = user.test_results|sort(attribute='date_taken', reverse=true)|first %}
+                                                        <a href="{{ url_for('disc.results', result_id=latest_result.id) }}" class="btn btn-sm btn-info" title="最新結果を表示">
+                                                            <i class="fas fa-chart-bar"></i>
+                                                        </a>
+                                                        <button class="btn btn-sm btn-success view-history-btn" data-user-id="{{ user.id }}" title="履歴を表示">
+                                                            <i class="fas fa-history"></i>
+                                                        </button>
+                                                    {% else %}
+                                                        <span class="btn btn-sm btn-secondary disabled">
+                                                            <i class="fas fa-minus"></i>
+                                                        </span>
+                                                    {% endif %}
+                                                    <button class="btn btn-sm btn-primary edit-user-btn" data-user-id="{{ user.id }}" title="ユーザー編集">
+                                                        <i class="fas fa-edit"></i>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 組織別統計セクション -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="fas fa-chart-pie me-2"></i>組織別統計</h5>
+                        </div>
+                        <div class="card-body">
+                            <div id="teamStatsContainer">
+                                <!-- 組織別統計がここに動的に表示される -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ユーザー履歴モーダル -->
+<div class="modal fade" id="userHistoryModal" tabindex="-1" aria-labelledby="userHistoryModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="userHistoryModalLabel">ユーザー測定履歴</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div id="userHistoryContent">
+                    <!-- ユーザー履歴がここに表示される -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ユーザー編集モーダル -->
+<div class="modal fade" id="editUserModal" tabindex="-1" aria-labelledby="editUserModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editUserModalLabel">ユーザー編集</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="editUserForm">
+                    <input type="hidden" id="userId" name="userId">
+                    <div class="mb-3">
+                        <label for="editUsername" class="form-label">ユーザー名</label>
+                        <input type="text" class="form-control" id="editUsername" name="username" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="editEmail" class="form-label">メールアドレス</label>
+                        <input type="email" class="form-control" id="editEmail" name="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="editTeamId" class="form-label">組織ID</label>
+                        <input type="number" class="form-control" id="editTeamId" name="teamId" min="1">
+                        <small class="form-text text-muted">空白の場合、組織に所属しません。</small>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="editIsAdmin" name="isAdmin">
+                        <label class="form-check-label" for="editIsAdmin">管理者権限</label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">キャンセル</button>
+                <button type="button" class="btn btn-primary" id="saveUserChanges">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .dashboard-container {
+        margin-bottom: 2rem;
+    }
+    
+    .card {
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        margin-bottom: 1.5rem;
+    }
+    
+    .card-header {
+        border-top-left-radius: 10px !important;
+        border-top-right-radius: 10px !important;
+        background: linear-gradient(135deg, #87CEEB 0%, #4682B4 100%) !important;
+        color: white;
+    }
+    
+    .stat-card {
+        display: flex;
+        align-items: center;
+        padding: 1.5rem;
+        border-radius: 10px;
+        color: white;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    }
+    
+    .stat-card:hover {
+        transform: translateY(-5px);
+    }
+    
+    .d-type {
+        background: linear-gradient(135deg, #ff5252 0%, #b33939 100%);
+    }
+    
+    .i-type {
+        background: linear-gradient(135deg, #ffa502 0%, #cc8500 100%);
+    }
+    
+    .s-type {
+        background: linear-gradient(135deg, #2ed573 0%, #10ac84 100%);
+    }
+    
+    .c-type {
+        background: linear-gradient(135deg, #1e90ff 0%, #0652DD 100%);
+    }
+    
+    .stat-icon {
+        font-size: 2.5rem;
+        margin-right: 1rem;
+    }
+    
+    .stat-info h5 {
+        margin-bottom: 0.25rem;
+        font-size: 1rem;
+        opacity: 0.9;
+    }
+    
+    .stat-info h2 {
+        margin-bottom: 0;
+        font-weight: 700;
+        font-size: 2rem;
+    }
+    
+    .table {
+        border-collapse: separate;
+        border-spacing: 0;
+    }
+    
+    .table th {
+        background-color: #f8f9fa;
+        border-bottom: 2px solid #dee2e6;
+    }
+    
+    .table tbody tr {
+        transition: all 0.2s;
+    }
+    
+    .table tbody tr:hover {
+        background-color: rgba(70, 130, 180, 0.1);
+    }
+    
+    .avatar-sm {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+        font-weight: bold;
+    }
+    
+    .disc-values {
+        display: flex;
+        gap: 4px;
+        flex-wrap: wrap;
+    }
+    
+    .disc-value {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        color: white;
+        font-size: 11px;
+        font-weight: bold;
+        text-align: center;
+        line-height: 24px;
+    }
+    
+    .d-value {
+        background-color: #DC3545;
+    }
+    
+    .i-value {
+        background-color: #FFC107;
+        color: #000;
+    }
+    
+    .s-value {
+        background-color: #28A745;
+    }
+    
+    .c-value {
+        background-color: #007BFF;
+    }
+    
+    .n-value {
+        background-color: #6C757D;
+    }
+    
+    .btn-group .btn {
+        margin-right: 2px;
+    }
+    
+    .btn-group .btn:last-child {
+        margin-right: 0;
+    }
+    
+    .team-stats-card {
+        border: 1px solid #dee2e6;
+        border-radius: 8px;
+        padding: 15px;
+        margin-bottom: 15px;
+        background-color: #f8f9fa;
+    }
+    
+    .team-stats-header {
+        display: flex;
+        justify-content: between;
+        align-items: center;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #dee2e6;
+    }
+    
+    .team-chart {
+        height: 200px;
+        margin-bottom: 10px;
+    }
+    
+    .hidden {
+        display: none !important;
+    }
+    
+    .btn-info, .btn-success, .btn-primary, .btn-danger {
+        color: white;
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // フィルタリング機能
+    const teamFilter = document.getElementById('teamFilter');
+    const resultFilter = document.getElementById('resultFilter');
+    const membersTableBody = document.getElementById('membersTableBody');
+    const refreshButton = document.getElementById('refreshData');
+    
+    // モーダル
+    const userHistoryModal = new bootstrap.Modal(document.getElementById('userHistoryModal'));
+    const editUserModal = new bootstrap.Modal(document.getElementById('editUserModal'));
+    
+    // フィルタリング関数
+    function filterTable() {
+        const teamValue = teamFilter.value;
+        const resultValue = resultFilter.value;
+        const rows = membersTableBody.querySelectorAll('tr');
+        
+        rows.forEach(row => {
+            const teamId = row.getAttribute('data-team-id');
+            const testCount = parseInt(row.getAttribute('data-test-count'));
+            
+            let showRow = true;
+            
+            // 組織フィルタ
+            if (teamValue && teamId !== teamValue) {
+                showRow = false;
+            }
+            
+            // 結果フィルタ
+            if (resultValue === 'tested' && testCount === 0) {
+                showRow = false;
+            } else if (resultValue === 'untested' && testCount > 0) {
+                showRow = false;
+            }
+            
+            row.style.display = showRow ? '' : 'none';
+        });
+        
+        updateTeamStats();
+    }
+    
+    // イベントリスナー
+    teamFilter.addEventListener('change', filterTable);
+    resultFilter.addEventListener('change', filterTable);
+    refreshButton.addEventListener('click', () => location.reload());
+    
+    // ユーザー履歴表示
+    document.querySelectorAll('.view-history-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const userId = this.getAttribute('data-user-id');
+            loadUserHistory(userId);
+        });
+    });
+    
+    // ユーザー編集
+    document.querySelectorAll('.edit-user-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const userId = this.getAttribute('data-user-id');
+            loadUserEditForm(userId);
+        });
+    });
+    
+    // ユーザー履歴読み込み
+    function loadUserHistory(userId) {
+        // 実際の実装では、APIからユーザー履歴を取得
+        const historyContent = document.getElementById('userHistoryContent');
+        historyContent.innerHTML = '<div class="text-center"><div class="spinner-border" role="status"></div></div>';
+        
+        // サンプルデータで履歴を表示
+        setTimeout(() => {
+            historyContent.innerHTML = `
+                <div class="table-responsive">
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th>測定日</th>
+                                <th>DISC値</th>
+                                <th>プロファイル</th>
+                                <th>アクション</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2024/01/15</td>
+                                <td>
+                                    <div class="disc-values">
+                                        <span class="disc-value d-value">5</span>
+                                        <span class="disc-value i-value">8</span>
+                                        <span class="disc-value s-value">3</span>
+                                        <span class="disc-value c-value">6</span>
+                                    </div>
+                                </td>
+                                <td><span class="badge bg-primary">創造者</span></td>
+                                <td><button class="btn btn-sm btn-info">詳細</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            `;
+        }, 1000);
+        
+        userHistoryModal.show();
+    }
+    
+    // ユーザー編集フォーム読み込み
+    function loadUserEditForm(userId) {
+        // 実際の実装では、APIからユーザー情報を取得
+        const row = document.querySelector(`[data-user-id="${userId}"]`).closest('tr');
+        const username = row.cells[0].textContent.trim();
+        const teamId = row.getAttribute('data-team-id');
+        
+        document.getElementById('userId').value = userId;
+        document.getElementById('editUsername').value = username;
+        document.getElementById('editTeamId').value = teamId !== 'none' ? teamId : '';
+        
+        editUserModal.show();
+    }
+    
+    // 組織別統計更新
+    function updateTeamStats() {
+        const teamStatsContainer = document.getElementById('teamStatsContainer');
+        const visibleRows = Array.from(membersTableBody.querySelectorAll('tr')).filter(row => row.style.display !== 'none');
+        
+        // 組織別にグループ化
+        const teamStats = {};
+        visibleRows.forEach(row => {
+            const teamId = row.getAttribute('data-team-id');
+            const testCount = parseInt(row.getAttribute('data-test-count'));
+            
+            if (!teamStats[teamId]) {
+                teamStats[teamId] = {
+                    memberCount: 0,
+                    testedCount: 0,
+                    totalTests: 0
+                };
+            }
+            
+            teamStats[teamId].memberCount++;
+            if (testCount > 0) {
+                teamStats[teamId].testedCount++;
+                teamStats[teamId].totalTests += testCount;
+            }
+        });
+        
+        // 統計表示
+        let statsHtml = '';
+        Object.keys(teamStats).forEach(teamId => {
+            const stats = teamStats[teamId];
+            const teamName = teamId === 'none' ? '未所属' : `組織 ${teamId}`;
+            const testRate = stats.memberCount > 0 ? Math.round((stats.testedCount / stats.memberCount) * 100) : 0;
+            
+            statsHtml += `
+                <div class="team-stats-card">
+                    <div class="team-stats-header">
+                        <h6 class="mb-0">${teamName}</h6>
+                        <span class="badge bg-info">${stats.memberCount}名</span>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <small class="text-muted">測定実施率</small>
+                            <div class="progress mb-2">
+                                <div class="progress-bar" style="width: ${testRate}%">${testRate}%</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <small class="text-muted">総測定回数</small>
+                            <h5 class="mb-0">${stats.totalTests}</h5>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+        
+        teamStatsContainer.innerHTML = statsHtml || '<p class="text-muted">表示するデータがありません。</p>';
+    }
+    
+    // 初期表示
+    filterTable();
+});
+</script>
+{% endblock %}

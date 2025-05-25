@@ -1,0 +1,393 @@
+{% extends "base.html" %}
+
+{% block title %}チーム分析{% endblock %}
+
+{% block content %}
+<div class="team-analysis-container">
+    <div class="card mb-4">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0"><i class="fas fa-users me-2"></i>チームDISC分析</h4>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="team-selector">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">チーム選択</h5>
+                            </div>
+                            <div class="card-body">
+                                <select id="teamSelector" class="form-select">
+                                    <option value="">チームを選択してください</option>
+                                    {% for team_id in team_ids %}
+                                    <option value="{{ team_id }}">チーム {{ team_id }}</option>
+                                    {% endfor %}
+                                </select>
+                                <div class="d-grid mt-3">
+                                    <button id="analyzeBtn" class="btn btn-primary" disabled>
+                                        <i class="fas fa-chart-pie me-2"></i>分析する
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div id="analysisResults" style="display: none;">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">分析結果</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="team-avg-chart-container">
+                                            <h6 class="text-center mb-3">チーム平均DISC値</h6>
+                                            <canvas id="teamAvgChart" height="250"></canvas>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="team-distribution-container">
+                                            <h6 class="text-center mb-3">プロファイル分布</h6>
+                                            <canvas id="profileDistributionChart" height="250"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card mt-4">
+                            <div class="card-header">
+                                <h5 class="mb-0">メンバー分析</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-hover" id="memberTable">
+                                        <thead>
+                                            <tr>
+                                                <th>メンバー名</th>
+                                                <th class="text-center">D値</th>
+                                                <th class="text-center">I値</th>
+                                                <th class="text-center">S値</th>
+                                                <th class="text-center">C値</th>
+                                                <th>プロファイル</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="memberTableBody">
+                                            <!-- メンバーデータがここに挿入されます -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card mt-4">
+                            <div class="card-header">
+                                <h5 class="mb-0">チーム概要</h5>
+                            </div>
+                            <div class="card-body">
+                                <div id="teamSummary">
+                                    <!-- チーム概要がここに挿入されます -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="noTeamSelected" class="alert alert-info">
+                        <p>左側のドロップダウンからチームを選択してください。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .card {
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    .card-header {
+        border-top-left-radius: 10px !important;
+        border-top-right-radius: 10px !important;
+        background: linear-gradient(135deg, #87CEEB 0%, #4682B4 100%) !important;
+        color: white;
+    }
+    
+    .team-selector .card-header {
+        background: #6c757d !important;
+    }
+    
+    .btn-primary {
+        background: linear-gradient(135deg, #87CEEB 0%, #4682B4 100%);
+        border: none;
+    }
+    
+    .btn-primary:hover {
+        background: linear-gradient(135deg, #4682B4 0%, #36648B 100%);
+    }
+    
+    .btn-primary:disabled {
+        background: #b0c4de;
+    }
+    
+    .team-avg-chart-container, .team-distribution-container {
+        padding: 15px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+    }
+    
+    .table {
+        border-collapse: separate;
+        border-spacing: 0;
+    }
+    
+    .table th {
+        background-color: #f8f9fa;
+    }
+    
+    .table tbody tr {
+        transition: all 0.2s;
+    }
+    
+    .table tbody tr:hover {
+        background-color: rgba(70, 130, 180, 0.1);
+    }
+    
+    #teamSummary {
+        padding: 15px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        border-left: 4px solid #4682B4;
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const teamSelector = document.getElementById('teamSelector');
+    const analyzeBtn = document.getElementById('analyzeBtn');
+    const analysisResults = document.getElementById('analysisResults');
+    const noTeamSelected = document.getElementById('noTeamSelected');
+    const memberTableBody = document.getElementById('memberTableBody');
+    const teamSummary = document.getElementById('teamSummary');
+    
+    let teamAvgChart = null;
+    let profileDistributionChart = null;
+    
+    // チーム選択の変更を監視
+    teamSelector.addEventListener('change', function() {
+        if (this.value) {
+            analyzeBtn.disabled = false;
+        } else {
+            analyzeBtn.disabled = true;
+            analysisResults.style.display = 'none';
+            noTeamSelected.style.display = 'block';
+        }
+    });
+    
+    // 分析ボタンのクリックイベント
+    analyzeBtn.addEventListener('click', function() {
+        const teamId = teamSelector.value;
+        if (!teamId) return;
+        
+        // APIからチームデータを取得
+        fetch(`/api/team_data/${teamId}`)
+            .then(response => response.json())
+            .then(data => {
+                // 結果表示エリアを表示
+                analysisResults.style.display = 'block';
+                noTeamSelected.style.display = 'none';
+                
+                // チーム平均グラフの描画
+                renderTeamAvgChart(data.team_avg);
+                
+                // プロファイル分布グラフの描画
+                renderProfileDistribution(data.members);
+                
+                // メンバーテーブルの描画
+                renderMemberTable(data.members);
+                
+                // チーム概要の生成
+                generateTeamSummary(data);
+            })
+            .catch(error => {
+                console.error('Error fetching team data:', error);
+                alert('チームデータの取得中にエラーが発生しました。');
+            });
+    });
+    
+    // チーム平均グラフの描画関数
+    function renderTeamAvgChart(teamAvg) {
+        const ctx = document.getElementById('teamAvgChart').getContext('2d');
+        
+        // 既存のチャートを破棄
+        if (teamAvgChart) {
+            teamAvgChart.destroy();
+        }
+        
+        teamAvgChart = new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['D型 (主導型)', 'I型 (感化型)', 'S型 (安定型)', 'C型 (慎重型)'],
+                datasets: [{
+                    label: 'チーム平均',
+                    data: [teamAvg.D, teamAvg.I, teamAvg.S, teamAvg.C],
+                    backgroundColor: 'rgba(70, 130, 180, 0.2)',
+                    borderColor: 'rgba(70, 130, 180, 0.7)',
+                    pointBackgroundColor: 'rgba(70, 130, 180, 1)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgba(70, 130, 180, 1)'
+                }]
+            },
+            options: {
+                elements: {
+                    line: {
+                        borderWidth: 3
+                    }
+                },
+                scales: {
+                    r: {
+                        angleLines: {
+                            display: true
+                        },
+                        suggestedMin: -24,
+                        suggestedMax: 24
+                    }
+                }
+            }
+        });
+    }
+    
+    // プロファイル分布グラフの描画関数
+    function renderProfileDistribution(members) {
+        // プロファイルごとの出現回数をカウント
+        const profiles = {};
+        members.forEach(member => {
+            if (profiles[member.pattern]) {
+                profiles[member.pattern]++;
+            } else {
+                profiles[member.pattern] = 1;
+            }
+        });
+        
+        // グラフ用データの準備
+        const labels = Object.keys(profiles);
+        const data = Object.values(profiles);
+        
+        const ctx = document.getElementById('profileDistributionChart').getContext('2d');
+        
+        // 既存のチャートを破棄
+        if (profileDistributionChart) {
+            profileDistributionChart.destroy();
+        }
+        
+        // 色の配列
+        const backgroundColors = [
+            'rgba(255, 99, 132, 0.7)',
+            'rgba(54, 162, 235, 0.7)',
+            'rgba(255, 206, 86, 0.7)',
+            'rgba(75, 192, 192, 0.7)',
+            'rgba(153, 102, 255, 0.7)',
+            'rgba(255, 159, 64, 0.7)'
+        ];
+        
+        profileDistributionChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: labels,
+                datasets: [{
+                    data: data,
+                    backgroundColor: backgroundColors.slice(0, labels.length),
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'right',
+                    }
+                }
+            }
+        });
+    }
+    
+    // メンバーテーブルの描画関数
+    function renderMemberTable(members) {
+        memberTableBody.innerHTML = '';
+        
+        members.forEach(member => {
+            const row = document.createElement('tr');
+            
+            row.innerHTML = `
+                <td>${member.username}</td>
+                <td class="text-center">${member.values.D}</td>
+                <td class="text-center">${member.values.I}</td>
+                <td class="text-center">${member.values.S}</td>
+                <td class="text-center">${member.values.C}</td>
+                <td>${member.pattern}</td>
+            `;
+            
+            memberTableBody.appendChild(row);
+        });
+    }
+    
+    // チーム概要の生成関数
+    function generateTeamSummary(data) {
+        // チームの主要な特性を分析
+        const avgD = data.team_avg.D;
+        const avgI = data.team_avg.I;
+        const avgS = data.team_avg.S;
+        const avgC = data.team_avg.C;
+        
+        // 最も高いDISC値を特定
+        const maxValue = Math.max(avgD, avgI, avgS, avgC);
+        let dominantType = '';
+        
+        if (maxValue === avgD) dominantType = 'D型（主導型）';
+        else if (maxValue === avgI) dominantType = 'I型（感化型）';
+        else if (maxValue === avgS) dominantType = 'S型（安定型）';
+        else if (maxValue === avgC) dominantType = 'C型（慎重型）';
+        
+        // チーム特性の分析
+        let teamStrengths = '';
+        let teamWeaknesses = '';
+        let teamSuggestions = '';
+        
+        if (dominantType === 'D型（主導型）') {
+            teamStrengths = '目標達成に向けた推進力が強く、意思決定が速いチームです。課題に対して積極的に取り組む姿勢があります。';
+            teamWeaknesses = '時に強引さが出る可能性があり、チームメンバー間の協調性や細部への配慮が不足することがあります。';
+            teamSuggestions = 'メンバー全員の意見を聞く時間を確保し、決定事項の詳細な計画と実行のフォローアップを強化することで、バランスの取れたチームになるでしょう。';
+        } else if (dominantType === 'I型（感化型）') {
+            teamStrengths = '創造性と社交性に富んだチームです。コミュニケーションが活発で、新しいアイデアが生まれやすい環境があります。';
+            teamWeaknesses = '実行力や細部への注意が不足する可能性があり、計画通りに進まないことがあります。';
+            teamSuggestions = '具体的な実行計画とタイムラインの設定、進捗管理の強化により、アイデアを確実に形にすることができるでしょう。';
+        } else if (dominantType === 'S型（安定型）') {
+            teamStrengths = '協調性に富み、安定した作業環境を持つチームです。メンバー間の信頼関係が強く、長期的なプロジェクトに適しています。';
+            teamWeaknesses = '変化への適応が遅れる可能性があり、新しい課題に対して慎重すぎる傾向があります。';
+            teamSuggestions = '定期的に新しい方法やアイデアを試す機会を設け、変化を前向きに捉える文化を育てることが重要です。';
+        } else if (dominantType === 'C型（慎重型）') {
+            teamStrengths = '分析力と細部への注意が優れたチームです。高品質の成果物を生み出し、論理的なアプローチで課題に取り組みます。';
+            teamWeaknesses = '完璧主義により進行が遅れる可能性があり、時に大局的な視点が欠けることがあります。';
+            teamSuggestions = '期限と優先順位を明確にし、過度な分析による停滞を防ぐことが重要です。また、定期的にチームの目標と進捗を確認することをお勧めします。';
+        }
+        
+        // チーム概要の生成
+        teamSummary.innerHTML = `
+            <h6 class="mb-3">チーム特性: ${dominantType}優位</h6>
+            <p><strong>チームの強み:</strong> ${teamStrengths}</p>
+            <p><strong>注意点:</strong> ${teamWeaknesses}</p>
+            <p><strong>改善提案:</strong> ${teamSuggestions}</p>
+            <p class="mt-4"><strong>メンバー数:</strong> ${data.members.length}名</p>
+        `;
+    }
+});
+</script>
+{% endblock %}

@@ -1,0 +1,278 @@
+{% extends "base.html" %}
+
+{% block title %}測定履歴{% endblock %}
+
+{% block content %}
+<div class="history-container">
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0"><i class="fas fa-history me-2"></i>DISC測定履歴</h4>
+        </div>
+        <div class="card-body">
+            {% if test_results %}
+            <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>測定日</th>
+                            <th class="text-center">D値</th>
+                            <th class="text-center">I値</th>
+                            <th class="text-center">S値</th>
+                            <th class="text-center">C値</th>
+                            <th>プロフィールパターン</th>
+                            <th class="text-center">分析結果</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for result in test_results %}
+                        <tr>
+                            <td>{{ result.date_taken.strftime('%Y/%m/%d %H:%M') }}</td>
+                            <td class="text-center">{{ result.graph_3_d }}</td>
+                            <td class="text-center">{{ result.graph_3_i }}</td>
+                            <td class="text-center">{{ result.graph_3_s }}</td>
+                            <td class="text-center">{{ result.graph_3_c }}</td>
+                            <td>{{ result.profile_pattern_3 }}</td>
+                            <td class="text-center">
+                                <a href="{{ url_for('disc.results', result_id=result.id) }}" class="btn btn-sm btn-info">
+                                    <i class="fas fa-chart-bar me-1"></i>詳細
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <div class="alert alert-info">
+                <p>測定履歴がありません。最初の測定を行ってください。</p>
+                <a href="{{ url_for('disc.test') }}" class="btn btn-primary mt-2">
+                    <i class="fas fa-clipboard-check me-2"></i>DISC測定を開始する
+                </a>
+            </div>
+            {% endif %}
+        </div>
+        <div class="card-footer">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <small class="text-muted">測定回数: {{ test_results|length }}</small>
+                </div>
+                <a href="{{ url_for('disc.test') }}" class="btn btn-primary">
+                    <i class="fas fa-plus-circle me-2"></i>新しい測定を開始
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    {% if test_results %}
+    <div class="card mt-4">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0"><i class="fas fa-chart-line me-2"></i>DISC傾向の推移</h4>
+        </div>
+        <div class="card-body">
+            <canvas id="discTrendsChart"></canvas>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .card {
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    .card-header {
+        border-top-left-radius: 10px !important;
+        border-top-right-radius: 10px !important;
+        background: linear-gradient(135deg, #87CEEB 0%, #4682B4 100%) !important;
+    }
+    
+    .btn-primary {
+        background: linear-gradient(135deg, #87CEEB 0%, #4682B4 100%);
+        border: none;
+    }
+    
+    .btn-primary:hover {
+        background: linear-gradient(135deg, #4682B4 0%, #36648B 100%);
+    }
+    
+    .btn-info {
+        background-color: #5bc0de;
+        border-color: #5bc0de;
+        color: white;
+    }
+    
+    .btn-info:hover {
+        background-color: #31b0d5;
+        border-color: #31b0d5;
+        color: white;
+    }
+    
+    .table {
+        border-collapse: separate;
+        border-spacing: 0;
+    }
+    
+    .table th {
+        background-color: #f8f9fa;
+    }
+    
+    .table tbody tr {
+        transition: all 0.2s;
+    }
+    
+    .table tbody tr:hover {
+        background-color: rgba(70, 130, 180, 0.1);
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+{% if test_results|length > 0 %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // テスト結果データを取得（古い順）
+    const origDates = [{% for result in test_results %}
+                    '{{ result.date_taken.strftime("%Y/%m/%d") }}',
+                  {% endfor %}];
+    
+    const origDValues = [{% for result in test_results %}
+                        {{ result.graph_3_d }},
+                    {% endfor %}];
+    
+    const origIValues = [{% for result in test_results %}
+                        {{ result.graph_3_i }},
+                    {% endfor %}];
+    
+    const origSValues = [{% for result in test_results %}
+                        {{ result.graph_3_s }},
+                    {% endfor %}];
+    
+    const origCValues = [{% for result in test_results %}
+                        {{ result.graph_3_c }},
+                    {% endfor %}];
+    
+    // 10分割用の全てのラベルとデータポイントを作成
+    const allLabels = new Array(10).fill('');
+    const dataCount = origDates.length;
+    
+    // 常に10個の目盛りを表示
+    for (let i = 0; i < 10; i++) {
+        // インデックスが実データ数より小さい場合のみ、実際のデータを使用
+        if (i < dataCount) {
+            allLabels[i] = origDates[i];
+        } else {
+            // それ以外は空文字列（ただし表示用に番号を付ける）
+            allLabels[i] = ''; // (i+1) + '回目';
+        }
+    }
+    
+    // 実際のデータは順序通りに表示（左詰め）
+    // 注: origValuesは古い順なので、そのまま使用
+    
+    // グラフの作成
+    const ctx = document.getElementById('discTrendsChart').getContext('2d');
+    const discTrendsChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: allLabels,
+            datasets: [
+                {
+                    label: 'D型',
+                    data: origDValues.concat(new Array(10 - dataCount).fill(null)),
+                    borderColor: 'rgba(255, 0, 0, 0.7)',
+                    backgroundColor: 'rgba(255, 0, 0, 0.1)',
+                    tension: 0.3,
+                    spanGaps: false,
+                    pointRadius: function(context) {
+                        // データが存在する点のみポイントを表示
+                        const index = context.dataIndex;
+                        return index < dataCount ? 4 : 0;
+                    }
+                },
+                {
+                    label: 'I型',
+                    data: origIValues.concat(new Array(10 - dataCount).fill(null)),
+                    borderColor: 'rgba(255, 215, 0, 0.7)',
+                    backgroundColor: 'rgba(255, 215, 0, 0.1)',
+                    tension: 0.3,
+                    spanGaps: false,
+                    pointRadius: function(context) {
+                        const index = context.dataIndex;
+                        return index < dataCount ? 4 : 0;
+                    }
+                },
+                {
+                    label: 'S型',
+                    data: origSValues.concat(new Array(10 - dataCount).fill(null)),
+                    borderColor: 'rgba(0, 128, 0, 0.7)',
+                    backgroundColor: 'rgba(0, 128, 0, 0.1)',
+                    tension: 0.3,
+                    spanGaps: false,
+                    pointRadius: function(context) {
+                        const index = context.dataIndex;
+                        return index < dataCount ? 4 : 0;
+                    }
+                },
+                {
+                    label: 'C型',
+                    data: origCValues.concat(new Array(10 - dataCount).fill(null)),
+                    borderColor: 'rgba(0, 0, 255, 0.7)',
+                    backgroundColor: 'rgba(0, 0, 255, 0.1)',
+                    tension: 0.3,
+                    spanGaps: false,
+                    pointRadius: function(context) {
+                        const index = context.dataIndex;
+                        return index < dataCount ? 4 : 0;
+                    }
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'DISC値の変化'
+                }
+            },
+            scales: {
+                x: {
+                    grid: {
+                        display: true,
+                        drawOnChartArea: true,
+                        color: function(context) {
+                            // データのあるエリアのグリッドだけ濃く表示
+                            return context.index < dataCount ? 'rgba(0,0,0,0.1)' : 'rgba(0,0,0,0.03)';
+                        }
+                    },
+                    ticks: {
+                        autoSkip: false,
+                        maxRotation: 45,
+                        minRotation: 45,
+                        color: function(context) {
+                            // データのあるラベルだけ表示
+                            return context.index < dataCount ? 'rgba(0,0,0,0.8)' : 'rgba(0,0,0,0)';
+                        }
+                    }
+                },
+                y: {
+                    suggestedMin: -24,
+                    suggestedMax: 24,
+                    ticks: {
+                        stepSize: 4
+                    }
+                }
+            }
+        }
+    });
+});
+</script>
+{% endif %}
+{% endblock %}

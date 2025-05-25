@@ -1,0 +1,298 @@
+{% extends "base.html" %}
+
+{% block title %}DISC測定テスト{% endblock %}
+
+{% block content %}
+<div class="test-container">
+    <div class="card mb-4">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0"><i class="fas fa-clipboard-check me-2"></i>DISC測定テスト</h4>
+        </div>
+        <div class="card-body">
+            <div class="test-instructions mb-4">
+                <h5><i class="fas fa-info-circle me-2"></i>テストの説明</h5>
+                <div class="alert alert-info">
+                    <p>以下の質問に対して、「<strong>最も当てはまる</strong>」項目と「<strong>最も当てはまらない</strong>」項目をそれぞれひとつずつ選んでください。</p>
+                    <p>直感的な回答を心がけ、あまり深く考えすぎないようにしてください。あなたの普段の行動や考え方に近いものを選びましょう。</p>
+                    <p>全部で24問あります。すべての質問に回答してください。</p>
+                </div>
+            </div>
+            
+            <form method="POST" action="{{ url_for('disc.submit_test') }}" id="discTestForm">
+                <div class="progress mb-4">
+                    <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                </div>
+                
+                {% for question in questions %}
+                <div class="question-card mb-4" id="question-{{ loop.index }}" style="{% if loop.index > 1 %}display: none;{% endif %}">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">質問 {{ loop.index }} / {{ questions|length }}</h5>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="question-text mb-4">{{ question.question_text }}</h6>
+                            
+                            <div class="choice-section mb-4">
+                                <h6 class="choice-label"><i class="fas fa-check-circle me-2 text-success"></i>最も当てはまる選択肢を選んでください：</h6>
+                                <div class="choices most-choices">
+                                    {% for choice in question.shuffled_choices %}
+                                    <div class="form-check choice-item">
+                                        <input class="form-check-input most-choice" type="radio" name="most_{{ question.id }}" id="most_{{ question.id }}_{{ choice.id }}" value="{{ choice.id }}" required>
+                                        <label class="form-check-label" for="most_{{ question.id }}_{{ choice.id }}">
+                                            {{ choice.choice_text }}
+                                        </label>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            
+                            <div class="choice-section">
+                                <h6 class="choice-label"><i class="fas fa-times-circle me-2 text-danger"></i>最も当てはまらない選択肢を選んでください：</h6>
+                                <div class="choices least-choices">
+                                    {% for choice in question.shuffled_choices %}
+                                    <div class="form-check choice-item">
+                                        <input class="form-check-input least-choice" type="radio" name="least_{{ question.id }}" id="least_{{ question.id }}_{{ choice.id }}" value="{{ choice.id }}" required>
+                                        <label class="form-check-label" for="least_{{ question.id }}_{{ choice.id }}">
+                                            {{ choice.choice_text }}
+                                        </label>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="d-flex justify-content-between">
+                                {% if loop.index > 1 %}
+                                <button type="button" class="btn btn-secondary prev-btn" data-question="{{ loop.index }}">
+                                    <i class="fas fa-arrow-left me-2"></i>前へ
+                                </button>
+                                {% else %}
+                                <span></span>
+                                {% endif %}
+                                
+                                {% if loop.index < questions|length %}
+                                <button type="button" class="btn btn-primary next-btn" data-question="{{ loop.index }}">
+                                    次へ<i class="fas fa-arrow-right ms-2"></i>
+                                </button>
+                                {% else %}
+                                <button type="submit" class="btn btn-success submit-btn">
+                                    <i class="fas fa-paper-plane me-2"></i>測定を完了する
+                                </button>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .card {
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    .card-header {
+        border-top-left-radius: 10px !important;
+        border-top-right-radius: 10px !important;
+        background: linear-gradient(135deg, #87CEEB 0%, #4682B4 100%) !important;
+        color: white;
+    }
+    
+    .question-text {
+        font-weight: 500;
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-radius: 5px;
+        border-left: 4px solid #4682B4;
+    }
+    
+    .choice-section {
+        background-color: #f9f9f9;
+        padding: 15px;
+        border-radius: 8px;
+    }
+    
+    .choice-label {
+        margin-bottom: 15px;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 8px;
+    }
+    
+    .choice-item {
+        padding: 8px;
+        margin-bottom: 5px;
+        border-radius: 5px;
+        transition: background-color 0.2s;
+    }
+    
+    .choice-item:hover {
+        background-color: #e9f5fb;
+    }
+    
+    .most-choices .choice-item.selected {
+        background-color: rgba(40, 167, 69, 0.1);
+    }
+    
+    .least-choices .choice-item.selected {
+        background-color: rgba(220, 53, 69, 0.1);
+    }
+    
+    .btn-primary {
+        background: linear-gradient(135deg, #87CEEB 0%, #4682B4 100%);
+        border: none;
+    }
+    
+    .btn-primary:hover {
+        background: linear-gradient(135deg, #4682B4 0%, #36648B 100%);
+    }
+    
+    .progress {
+        height: 10px;
+        border-radius: 5px;
+    }
+    
+    .progress-bar {
+        background: linear-gradient(135deg, #87CEEB 0%, #4682B4 100%);
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('discTestForm');
+    const questions = document.querySelectorAll('.question-card');
+    const progressBar = document.querySelector('.progress-bar');
+    const totalQuestions = {{ questions|length }};
+    
+    // 同じ選択肢が「最も当てはまる」と「最も当てはまらない」の両方で選ばれないようにする
+    questions.forEach(function(question) {
+        const mostChoices = question.querySelectorAll('.most-choice');
+        const leastChoices = question.querySelectorAll('.least-choice');
+        
+        mostChoices.forEach(function(mostChoice, index) {
+            mostChoice.addEventListener('change', function() {
+                // 「最も当てはまらない」で同じ選択肢が選ばれている場合、選択を解除
+                if (leastChoices[index].checked) {
+                    leastChoices[index].checked = false;
+                }
+                
+                // 選択された項目にスタイルを適用
+                question.querySelectorAll('.most-choices .choice-item').forEach(function(item) {
+                    item.classList.remove('selected');
+                });
+                mostChoice.closest('.choice-item').classList.add('selected');
+                
+                updateProgress();
+            });
+        });
+        
+        leastChoices.forEach(function(leastChoice, index) {
+            leastChoice.addEventListener('change', function() {
+                // 「最も当てはまる」で同じ選択肢が選ばれている場合、選択を解除
+                if (mostChoices[index].checked) {
+                    mostChoices[index].checked = false;
+                }
+                
+                // 選択された項目にスタイルを適用
+                question.querySelectorAll('.least-choices .choice-item').forEach(function(item) {
+                    item.classList.remove('selected');
+                });
+                leastChoice.closest('.choice-item').classList.add('selected');
+                
+                updateProgress();
+            });
+        });
+    });
+    
+    // 「次へ」ボタンの処理
+    document.querySelectorAll('.next-btn').forEach(function(button) {
+        button.addEventListener('click', function() {
+            const currentQuestion = parseInt(this.getAttribute('data-question'));
+            const currentQuestionEl = document.getElementById(`question-${currentQuestion}`);
+            const nextQuestionEl = document.getElementById(`question-${currentQuestion + 1}`);
+            
+            // 現在の質問が回答されているかチェック
+            const mostChecked = currentQuestionEl.querySelector('.most-choice:checked');
+            const leastChecked = currentQuestionEl.querySelector('.least-choice:checked');
+            
+            if (!mostChecked || !leastChecked) {
+                alert('現在の質問に回答してから次に進んでください。');
+                return;
+            }
+            
+            currentQuestionEl.style.display = 'none';
+            nextQuestionEl.style.display = 'block';
+            
+            // 進捗バーの更新
+            updateProgress();
+            
+            // スクロールを先頭に戻す
+            window.scrollTo(0, 0);
+        });
+    });
+    
+    // 「前へ」ボタンの処理
+    document.querySelectorAll('.prev-btn').forEach(function(button) {
+        button.addEventListener('click', function() {
+            const currentQuestion = parseInt(this.getAttribute('data-question'));
+            const currentQuestionEl = document.getElementById(`question-${currentQuestion}`);
+            const prevQuestionEl = document.getElementById(`question-${currentQuestion - 1}`);
+            
+            currentQuestionEl.style.display = 'none';
+            prevQuestionEl.style.display = 'block';
+            
+            // スクロールを先頭に戻す
+            window.scrollTo(0, 0);
+        });
+    });
+    
+    // フォーム送信前のバリデーション
+    form.addEventListener('submit', function(event) {
+        let isValid = true;
+        
+        questions.forEach(function(question, index) {
+            const mostChecked = question.querySelector('.most-choice:checked');
+            const leastChecked = question.querySelector('.least-choice:checked');
+            
+            if (!mostChecked || !leastChecked) {
+                isValid = false;
+                if (question.style.display === 'none') {
+                    questions.forEach(q => q.style.display = 'none');
+                    question.style.display = 'block';
+                }
+            }
+        });
+        
+        if (!isValid) {
+            event.preventDefault();
+            alert('すべての質問に回答してください。');
+        }
+    });
+    
+    // 進捗バーの更新関数
+    function updateProgress() {
+        const answeredQuestions = document.querySelectorAll('.question-card').length;
+        const answeredCount = Array.from(questions).filter(question => {
+            const mostChecked = question.querySelector('.most-choice:checked');
+            const leastChecked = question.querySelector('.least-choice:checked');
+            return mostChecked && leastChecked;
+        }).length;
+        
+        const progress = Math.round((answeredCount / totalQuestions) * 100);
+        progressBar.style.width = `${progress}%`;
+        progressBar.textContent = `${progress}%`;
+        progressBar.setAttribute('aria-valuenow', progress);
+    }
+    
+    // 初期進捗の更新
+    updateProgress();
+});
+</script>
+{% endblock %}
